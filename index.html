@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TORBU — Built for chains of command</title>
-  <meta name="description" content="TORBU is a readiness and learning platform for structured organizations that require oversight and measurable outcomes." />
+  <title>TORBU — Operating Intelligence for Regulated Systems</title>
+  <meta name="description" content="TORBU defines standards, structure, and oversight so intelligent systems operate with clear accountability." />
 
-  <!-- Poppins (Brand Typeface) -->
+  <!-- Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Cache-bust if needed -->
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 
 <body>
@@ -19,24 +20,25 @@
 
   <header class="header">
     <div class="container header__inner">
-      <a class="brand" href="#" aria-label="Torbu home">
-  <img
-    class="brand__logo"
-    src="assets/torbu-logo-horizontal-green.png"
-    alt="TORBU"
-    loading="eager"
-    decoding="async"
-  />
-</a>
+      <a class="brand" href="#main" aria-label="Torbu home">
+        <img
+          class="brand__logo"
+          src="assets/torbu-logo-horizontal-green.png"
+          alt="TORBU"
+          loading="eager"
+          decoding="async"
+        />
+      </a>
+
       <nav class="nav" aria-label="Primary navigation">
-        <a class="nav__link" href="#product">Product</a>
+        <a class="nav__link" href="#sectors">Sectors</a>
         <a class="nav__link" href="#how">How it works</a>
-        <a class="nav__link" href="#company">Company</a>
+        <a class="nav__link" href="#why">Why now</a>
         <a class="nav__link" href="#contact">Contact</a>
       </nav>
 
       <div class="header__cta">
-        <a class="btn btn--primary" href="#contact">Request a demo</a>
+        <a class="btn btn--primary" href="#contact">Contact</a>
         <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -46,79 +48,67 @@
     <!-- Mobile drawer -->
     <div class="drawer" id="drawer" hidden>
       <nav class="drawer__nav" aria-label="Mobile navigation">
-        <a class="drawer__link" href="#product">Product</a>
+        <a class="drawer__link" href="#sectors">Sectors</a>
         <a class="drawer__link" href="#how">How it works</a>
-        <a class="drawer__link" href="#company">Company</a>
+        <a class="drawer__link" href="#why">Why now</a>
         <a class="drawer__link" href="#contact">Contact</a>
-        <a class="btn btn--primary drawer__btn" href="#contact">Request a demo</a>
+        <a class="btn btn--primary drawer__btn" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
-<section class="hero">
-  <div class="container hero__inner hero__inner--single">
-    <div class="hero__copy hero__copy--overlay">
-      <p class="kicker">Readiness • Learning • Oversight</p>
-      <h1 class="h1">Built for chains of command.</h1>
-      <p class="lead">
-        TORBU is a readiness and learning platform for structured organizations that require
-        clear oversight and measurable outcomes.
-      </p>
+    <section class="hero">
+      <div class="container hero__inner hero__inner--single">
+        <div class="hero__copy hero__copy--overlay">
+          <p class="kicker">Operating Intelligence</p>
 
-      <div class="hero__buttons">
-        <a class="btn btn--primary" href="#contact">Request a demo</a>
-        <a class="btn btn--ghost btn--ghost-on-hero" href="#product">View product</a>
+          <h1 class="h1">Who’s accountable when automation fails?</h1>
+
+          <p class="lead">
+            AI accelerates execution.<br/>
+            Responsibility remains human.
+          </p>
+
+          <p class="lead">
+            TORBU turns standards into structured execution—<br/>
+            and execution into visible oversight.
+          </p>
+
+          <div class="hero__buttons">
+            <a class="btn btn--primary" href="#how">How it works</a>
+            <a class="btn btn--ghost btn--ghost-on-hero" href="#contact">Contact</a>
+          </div>
+
+          <div class="trust" aria-label="Highlights">
+            <div class="trust__pill">Governed</div>
+            <div class="trust__pill">Measurable</div>
+            <div class="trust__pill">Auditable</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="trust">
-        <div class="trust__pill trust__pill--on-hero">Hierarchy-aware roles</div>
-        <div class="trust__pill trust__pill--on-hero">Dashboards &amp; reporting</div>
-        <div class="trust__pill trust__pill--on-hero">Feedback loops</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- PRODUCT -->
-    <section class="section" id="product">
+    <!-- SECTORS (ultra-minimal) -->
+    <section class="section" id="sectors">
       <div class="container">
         <div class="section__head">
-          <h2 class="h2">Product</h2>
-          <p class="subhead">Core capabilities designed for structured oversight.</p>
+          <h2 class="h2">Structured. Regulated. Accountable.</h2>
         </div>
 
-        <div class="grid3">
-          <article class="card">
-            <h3 class="h3">Oversight</h3>
-            <p>Role-based visibility aligned to real reporting structures.</p>
-            <ul class="list">
-              <li>Hierarchical roles</li>
-              <li>Roll-up views</li>
-              <li>Clear accountability</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Learning + Assessment</h3>
-            <p>Structured content with checkpoints to validate progress.</p>
-            <ul class="list">
-              <li>Learning spaces</li>
-              <li>Quizzes & checkpoints</li>
-              <li>Progress tracking</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3 class="h3">Analytics</h3>
-            <p>Dashboards leaders can use to drive outcomes.</p>
-            <ul class="list">
-              <li>Completion & engagement</li>
-              <li>Readiness indicators</li>
-              <li>Exportable reporting</li>
-            </ul>
-          </article>
+        <!-- Using your existing grid/card system, but minimal -->
+        <div class="grid2">
+          <div class="card card--flat">
+            <p class="subhead" style="margin-top:0">Water</p>
+            <p class="subhead" style="margin-top:0">Energy</p>
+            <p class="subhead" style="margin-top:0">Transit</p>
+          </div>
+          <div class="card card--flat">
+            <p class="subhead" style="margin-top:0">Public Safety</p>
+            <p class="subhead" style="margin-top:0">Defense</p>
+            <p class="subhead" style="margin-top:0">Healthcare</p>
+          </div>
         </div>
       </div>
     </section>
@@ -128,55 +118,50 @@
       <div class="container">
         <div class="section__head">
           <h2 class="h2">How it works</h2>
-          <p class="subhead">A simple model built for consistency.</p>
+          <p class="subhead">Standards flow down. Results roll up.</p>
         </div>
 
         <div class="steps">
           <div class="step">
             <div class="checkpoint" aria-hidden="true"></div>
             <h3 class="h3">Define</h3>
-            <p>Set roles, standards, and what “ready” means.</p>
+            <p>Set the standard and accountability structure.</p>
           </div>
-          <div class="step">
-            <div class="checkpoint" aria-hidden="true"></div>
-            <h3 class="h3">Deploy</h3>
-            <p>Launch learning journeys and assessments.</p>
-          </div>
-          <div class="step">
-            <div class="checkpoint" aria-hidden="true"></div>
-            <h3 class="h3">Operate</h3>
-            <p>Monitor dashboards and improve over time.</p>
-          </div>
-        </div>
 
-        <div class="note">
-          <strong>Minimal by design:</strong> We keep public descriptions high-level to protect end-user confidentiality.
+          <div class="step">
+            <div class="checkpoint" aria-hidden="true"></div>
+            <h3 class="h3">Execute</h3>
+            <p>Deploy structured training, tasks, and checkpoints.</p>
+          </div>
+
+          <div class="step">
+            <div class="checkpoint" aria-hidden="true"></div>
+            <h3 class="h3">See</h3>
+            <p>Performance rolls up clearly. Gaps surface early.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- COMPANY -->
-    <section class="section" id="company">
+    <!-- WHY NOW -->
+    <section class="section" id="why">
       <div class="container">
         <div class="section__head">
-          <h2 class="h2">Company</h2>
-          <p class="subhead">TORBU focuses on product clarity, governance, and measurable outcomes.</p>
+          <h2 class="h2">Why now</h2>
         </div>
 
         <div class="grid2">
           <div class="card card--flat">
-            <h3 class="h3">What we do</h3>
-            <p>
-              We build a platform that helps organizations standardize learning, track progress, and give leaders
-              oversight aligned to real structures.
+            <p class="subhead" style="margin-top:0">
+              AI accelerates execution.<br/>
+              It does not remove responsibility.
             </p>
           </div>
 
           <div class="card card--flat">
-            <h3 class="h3">How we work</h3>
-            <p>
-              Deployments can include implementation support as needed. Product direction remains consistent to
-              keep rollouts repeatable and avoid custom forks.
+            <p class="subhead" style="margin-top:0">
+              As automation expands, standards become more valuable—not less.<br/>
+              The durable asset is the governed operating model behind it.
             </p>
           </div>
         </div>
@@ -188,8 +173,8 @@
       <div class="container">
         <div class="cta">
           <div class="cta__copy">
-            <h2 class="h2">Request a demo</h2>
-            <p class="subhead">Tell us a bit about your organization. We’ll follow up promptly.</p>
+            <h2 class="h2">Contact</h2>
+            <p class="subhead">Start a conversation.</p>
 
             <div class="cta__meta">
               <div class="meta">
@@ -198,7 +183,7 @@
               </div>
               <div class="meta">
                 <span class="meta__label">Focus</span>
-                <span class="meta__value">Readiness • Training • Oversight</span>
+                <span class="meta__value">Standards • Execution • Oversight</span>
               </div>
             </div>
           </div>
@@ -221,15 +206,13 @@
 
             <label>
               <span>Message</span>
-              <textarea name="message" rows="4" placeholder="What are you trying to enable?" required></textarea>
+              <textarea name="message" rows="4" placeholder="What problem are you solving?" required></textarea>
             </label>
 
-            <button class="btn btn--primary btn--full" type="submit">
-              Send
-            </button>
+            <button class="btn btn--primary btn--full" type="submit">Send</button>
 
             <p class="fineprint">
-              We keep discussions confidential. No end-user names or deployments are referenced publicly.
+              We respond promptly. If you prefer, email us directly.
             </p>
           </form>
         </div>
@@ -241,13 +224,13 @@
     <div class="container footer__inner">
       <div class="footer__left">
         <div class="footer__brand">TORBU</div>
-        <div class="footer__tag">Built for chains of command.</div>
+        <div class="footer__tag">Operating Intelligence for Regulated Systems.</div>
       </div>
 
       <div class="footer__right">
-        <a href="#product">Product</a>
+        <a href="#sectors">Sectors</a>
         <a href="#how">How it works</a>
-        <a href="#company">Company</a>
+        <a href="#why">Why now</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
