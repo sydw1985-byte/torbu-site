@@ -169,7 +169,7 @@ img{max-width:100%;height:auto;display:block}
   /* darker lower-left → lighter upper-right (slightly lighter orange) */
   background: linear-gradient(
     45deg,
-    #EA7753 0%,
+    #EE805A 0%,
     #F28A5D 35%,
     #F6B061 65%,
     #F7D861 85%,
