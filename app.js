@@ -1,68 +1,37 @@
-const SCRIPT_URL = "YOUR_WEB_APP_EXEC_URL_HERE";
 const RECAPTCHA_SITE_KEY = "6LcphWksAAAAAA9gfOwjBuMDWHQY2PQ_GDStFNPU";
 
 const form = document.getElementById("contactForm");
-const statusEl = document.getElementById("formStatus");
-
-async function getRecaptchaToken() {
-  return new Promise((resolve, reject) => {
-    if (!window.grecaptcha) return reject(new Error("reCAPTCHA not loaded"));
-    grecaptcha.ready(async () => {
-      try {
-        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact_submit" });
-        resolve(token);
-      } catch (e) {
-        reject(e);
-      }
-    });
-  });
-}
+const tokenEl = document.getElementById("recaptchaToken");
 
 if (form) {
   form.addEventListener("submit", async (e) => {
+    // Honeypot spam check
+    if (form.company && form.company.value !== "") {
+      e.preventDefault();
+      return;
+    }
+
+    // If token already exists, let the form submit normally
+    if (tokenEl && tokenEl.value) return;
+
     e.preventDefault();
 
-    // Honeypot spam check
-    if (form.company && form.company.value !== "") return;
-
-    if (statusEl) {
-      statusEl.style.display = "block";
-      statusEl.textContent = "Sending…";
+    if (!window.grecaptcha) {
+      alert("reCAPTCHA not loaded. Please refresh and try again.");
+      return;
     }
 
-    try {
-      const recaptchaToken = await getRecaptchaToken();
+    grecaptcha.ready(async () => {
+      try {
+        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact_submit" });
+        tokenEl.value = token;
 
-      const payload = {
-        name: form.name.value.trim(),
-        org: form.org.value.trim(),
-        email: form.email.value.trim(),
-        message: form.message.value.trim(),
-        recaptchaToken,
-        recaptchaAction: "contact_submit",
-      };
-
-      const res = await fetch(SCRIPT_URL, {
-  method: "POST",
-  body: JSON.stringify(payload)
-});
-
-      const text = await res.text();
-      let data = {};
-      try { data = JSON.parse(text); } catch (e) {}
-
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error || text || "Submission failed");
+        // Now submit normally (no fetch)
+        form.submit();
+      } catch (err) {
+        console.error(err);
+        alert("Could not verify reCAPTCHA. Please try again.");
       }
-
-      window.location.href = "thank-you.html";
-
-    } catch (err) {
-      console.error(err);
-      if (statusEl) {
-        statusEl.style.display = "block";
-        statusEl.textContent = `Error: ${err.message}`; // change back later
-      }
-    }
+    });
   });
 }
