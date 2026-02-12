@@ -1,4 +1,4 @@
-const SCRIPT_URL = "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE";
+const SCRIPT_URL = "YOUR_WEB_APP_EXEC_URL_HERE";
 const RECAPTCHA_SITE_KEY = "6LcphWksAAAAAA9gfOwjBuMDWHQY2PQ_GDStFNPU";
 
 const form = document.getElementById("contactForm");
@@ -49,21 +49,20 @@ if (form) {
       });
 
       const text = await res.text();
-let data = {};
-try { data = JSON.parse(text); } catch (e) {}
+      let data = {};
+      try { data = JSON.parse(text); } catch (e) {}
 
-if (!res.ok || !data.ok) {
-  throw new Error(data.error || text || "Submission failed");
-}
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || text || "Submission failed");
+      }
 
-
-      // Redirect
       window.location.href = "thank-you.html";
+
     } catch (err) {
       console.error(err);
       if (statusEl) {
         statusEl.style.display = "block";
-        statusEl.textContent = "Something went wrong. Please email info@torbu.com.";
+        statusEl.textContent = `Error: ${err.message}`; // change back later
       }
     }
   });
