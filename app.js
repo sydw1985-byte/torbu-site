@@ -4,14 +4,14 @@ const form = document.getElementById("contactForm");
 const tokenEl = document.getElementById("recaptchaToken");
 
 if (form) {
-  form.addEventListener("submit", async (e) => {
-    // Honeypot spam check
-    if (form.company && form.company.value !== "") {
+  form.addEventListener("submit", (e) => {
+    // Honeypot
+    if (form.company && form.company.value.trim() !== "") {
       e.preventDefault();
       return;
     }
 
-    // If token already exists, let the form submit normally
+    // If token already set, allow submit
     if (tokenEl && tokenEl.value) return;
 
     e.preventDefault();
@@ -21,17 +21,16 @@ if (form) {
       return;
     }
 
-    grecaptcha.ready(async () => {
-      try {
-        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact_submit" });
-        tokenEl.value = token;
-
-        // Now submit normally (no fetch)
-        form.submit();
-      } catch (err) {
-        console.error(err);
-        alert("Could not verify reCAPTCHA. Please try again.");
-      }
+    grecaptcha.ready(() => {
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact_submit" })
+        .then((token) => {
+          tokenEl.value = token;
+          form.submit(); // submit normally to Apps Script
+        })
+        .catch((err) => {
+          console.error(err);
+          alert("Could not verify reCAPTCHA. Please try again.");
+        });
     });
   });
 }
