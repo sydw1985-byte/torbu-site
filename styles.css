@@ -191,7 +191,7 @@ img{max-width:100%; height:auto}
   border:1px solid rgba(3,81,87,.12);
 }
 
-/* Hero visual panel */
+/* Hero visual panel (image background, no journey line/points) */
 .panel{
   position:relative;
   border-radius: var(--radius);
@@ -199,29 +199,32 @@ img{max-width:100%; height:auto}
   min-height: 360px;
   box-shadow: var(--shadow);
   border: 1px solid rgba(3,81,87,.12);
-  background: linear-gradient(45deg, var(--lime), var(--midnight));
+
+  /* IMPORTANT: update the filename to match your repo exactly */
+  background-image: url("assets/hero-side.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.panel__mark{
-  position:absolute;
-  inset:-30%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(252,124,87,.35), transparent 45%),
-    radial-gradient(circle at 70% 60%, rgba(214,252,73,.35), transparent 50%),
-    radial-gradient(circle at 60% 20%, rgba(242,237,232,.25), transparent 55%);
-  transform: rotate(-8deg);
-}
-.panel__glow{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(45deg, rgba(252,124,87,.25), rgba(214,252,73,.25));
-  mix-blend-mode: soft-light;
-}
+
+/* Remove/disable the old decorative layers */
+.panel__mark,
+.panel__glow,
 .journey{
+  display:none !important;
+}
+
+/* Optional: subtle brand tint so text palette stays cohesive */
+.panel::after{
+  content:"";
   position:absolute;
   inset:0;
-  width:100%;
-  height:100%;
-  opacity:.95;
+  background: linear-gradient(
+    45deg,
+    rgba(242,237,232,.10),
+    rgba(3,81,87,.10)
+  );
+  pointer-events:none;
 }
 
 /* Sections */
