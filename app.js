@@ -1,30 +1,38 @@
-(() => {
-  const toggle = document.querySelector(".nav__toggle");
-  const drawer = document.getElementById("drawer");
+const SCRIPT_URL = "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE";
 
-  if (!toggle || !drawer) return;
+const form = document.getElementById("contactForm");
+const statusEl = document.getElementById("formStatus");
 
-  const openDrawer = () => {
-    drawer.hidden = false;
-    toggle.setAttribute("aria-expanded", "true");
-  };
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const closeDrawer = () => {
-    drawer.hidden = true;
-    toggle.setAttribute("aria-expanded", "false");
-  };
+    // Basic spam check
+    if (form.company.value !== "") return;
 
-  toggle.addEventListener("click", () => {
-    const expanded = toggle.getAttribute("aria-expanded") === "true";
-    expanded ? closeDrawer() : openDrawer();
+    const payload = {
+      name: form.name.value.trim(),
+      org: form.org.value.trim(),
+      email: form.email.value.trim(),
+      message: form.message.value.trim(),
+    };
+
+    try {
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      form.reset();
+      statusEl.style.display = "block";
+      statusEl.textContent = "Thanks — we’ll be in touch shortly.";
+
+    } catch (err) {
+      statusEl.style.display = "block";
+      statusEl.textContent = "Something went wrong. Please email info@torbu.com.";
+    }
   });
-
-  drawer.addEventListener("click", (e) => {
-    const t = e.target;
-    if (t && t.tagName === "A") closeDrawer();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeDrawer();
-  });
-})();
+}
