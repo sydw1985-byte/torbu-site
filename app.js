@@ -1,5 +1,5 @@
 const SCRIPT_URL = "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE";
-const RECAPTCHA_SITE_KEY = "PASTE_YOUR_RECAPTCHA_SITE_KEY_HERE";
+const RECAPTCHA_SITE_KEY = "6LcphWksAAAAAA9gfOwjBuMDWHQY2PQ_GDStFNPU";
 
 const form = document.getElementById("contactForm");
 const statusEl = document.getElementById("formStatus");
@@ -22,11 +22,13 @@ if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Honeypot spam check (keep your hidden input named "company")
+    // Honeypot spam check
     if (form.company && form.company.value !== "") return;
 
-    statusEl.style.display = "block";
-    statusEl.textContent = "Sending…";
+    if (statusEl) {
+      statusEl.style.display = "block";
+      statusEl.textContent = "Sending…";
+    }
 
     try {
       const recaptchaToken = await getRecaptchaToken();
@@ -49,11 +51,14 @@ if (form) {
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error || "Submission failed");
 
-      // Redirect to thank-you page
+      // Redirect
       window.location.href = "thank-you.html";
     } catch (err) {
-      statusEl.textContent = "Something went wrong. Please email info@torbu.com.";
       console.error(err);
+      if (statusEl) {
+        statusEl.style.display = "block";
+        statusEl.textContent = "Something went wrong. Please email info@torbu.com.";
+      }
     }
   });
 }
