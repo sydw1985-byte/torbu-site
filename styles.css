@@ -63,13 +63,13 @@ img{max-width:100%; height:auto}
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
-  font-weight:800;
-  letter-spacing:.02em;
-  color: var(--midnight);
 }
-.brand__mark{width:36px; height:36px}
-.brand__word{font-size:18px}
+
+.brand__logo{
+  height: 28px;   /* tweak if needed */
+  width: auto;
+  display:block;
+}
 
 .nav{
   display:flex;
