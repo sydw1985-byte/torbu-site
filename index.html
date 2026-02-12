@@ -208,55 +208,67 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section section--cta" id="contact">
-      <div class="container">
-        <div class="cta">
-          <div class="cta__copy">
-            <h2 class="h2">Contact</h2>
-            <p class="subhead">Start a conversation.</p>
+<section class="section section--cta" id="contact">
+  <div class="container">
+    <div class="cta">
 
-            <div class="cta__meta">
-              <div class="meta">
-                <span class="meta__label">Email</span>
-                <span class="meta__value">info@torbu.com</span>
-              </div>
-              <div class="meta">
-                <span class="meta__label">Focus</span>
-                <span class="meta__value">Standards • Execution • Oversight</span>
-              </div>
-            </div>
+      <div class="cta__copy">
+        <h2 class="h2">Contact</h2>
+        <p class="subhead">Start a conversation.</p>
+
+        <div class="cta__meta">
+          <div class="meta">
+            <span class="meta__label">Email</span>
+            <span class="meta__value">info@torbu.com</span>
           </div>
-
-          <form class="form" action="#" method="post" onsubmit="return false;">
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" autocomplete="name" required />
-            </label>
-
-            <label>
-              <span>Organization</span>
-              <input type="text" name="org" autocomplete="organization" required />
-            </label>
-
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
-
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="4" placeholder="What problem are you solving?" required></textarea>
-            </label>
-
-            <button class="btn btn--primary btn--full" type="submit">Send</button>
-
-            <p class="fineprint">
-              We respond promptly. If you prefer, email us directly.
-            </p>
-          </form>
+          <div class="meta">
+            <span class="meta__label">Focus</span>
+            <span class="meta__value">Standards • Execution • Oversight</span>
+          </div>
         </div>
       </div>
-    </section>
+
+      <!-- LIVE FORM -->
+      <form class="form" id="contactForm" method="POST">
+
+        <!-- Honeypot field (spam bots fill this, humans don’t see it) -->
+        <input type="text" name="company" style="display:none">
+
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+
+        <label>
+          <span>Organization</span>
+          <input type="text" name="org" autocomplete="organization" required />
+        </label>
+
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="4" placeholder="What problem are you solving?" required></textarea>
+        </label>
+
+        <button class="btn btn--primary btn--full" type="submit">
+          Send
+        </button>
+
+        <p class="fineprint">
+          We respond promptly. If you prefer, email us directly.
+        </p>
+
+        <p id="formStatus" class="fineprint" style="display:none;"></p>
+
+      </form>
+
+    </div>
+  </div>
+</section>
   </main>
 
   <footer class="footer">
