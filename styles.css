@@ -152,18 +152,26 @@ img{ max-width:100%; height:auto; display:block; }
   position: relative;
   padding: 96px 0 72px;
   overflow: hidden;
+  isolation: isolate;
+
+  /* Make the hero tall enough to show more of the image */
+  min-height: 640px;
 
   /* GitHub Pages project path (repo = torbu-site) */
-  background-image: url("/torbu-site/assets/hero-side.png");
+  background: url("/torbu-site/assets/hero-side.png") no-repeat;
+
+  /* Fill hero while preserving aspect ratio (will crop) */
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+  /* Control what portion stays visible (tweak as needed) */
+  background-position: 60% center;
 }
 
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
+  z-index: 0;
   background:
     linear-gradient(90deg,
       rgba(3,81,87,.86) 0%,
@@ -185,6 +193,15 @@ img{ max-width:100%; height:auto; display:block; }
 
 .hero__inner{ display:block; }
 .hero__inner--single{ max-width: 760px; }
+
+/* Responsive: smaller minimum height on mobile */
+@media (max-width: 900px){
+  .hero{
+    min-height: 520px;
+    padding: 82px 0 56px;
+    background-position: center;
+  }
+}
 
 .kicker{
   font-size:13px;
