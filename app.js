@@ -48,8 +48,14 @@ if (form) {
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.ok) throw new Error(data.error || "Submission failed");
+      const text = await res.text();
+let data = {};
+try { data = JSON.parse(text); } catch (e) {}
+
+if (!res.ok || !data.ok) {
+  throw new Error(data.error || text || "Submission failed");
+}
+
 
       // Redirect
       window.location.href = "thank-you.html";
