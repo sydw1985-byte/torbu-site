@@ -229,42 +229,43 @@
       </div>
 
       <!-- LIVE FORM -->
-      <form class="form" id="contactForm" method="POST">
+      <form
+  class="form"
+  id="contactForm"
+  method="POST"
+  action="https://script.google.com/macros/s/AKfycbzLXTfsq206Y1rVVrEnI0Sa-cKVYwxJa68b0Oe5mnSVEOdHyidSdQSGPJaziBsGQU-Z4w/exec"
+>
+  <!-- Honeypot -->
+  <input type="text" name="company" style="display:none">
 
-        <!-- Honeypot field (spam bots fill this, humans don’t see it) -->
-        <input type="text" name="company" style="display:none">
+  <!-- reCAPTCHA token (filled by JS) -->
+  <input type="hidden" name="recaptchaToken" id="recaptchaToken">
+  <input type="hidden" name="recaptchaAction" value="contact_submit">
 
-        <label>
-          <span>Name</span>
-          <input type="text" name="name" autocomplete="name" required />
-        </label>
+  <label>
+    <span>Name</span>
+    <input type="text" name="name" autocomplete="name" required />
+  </label>
 
-        <label>
-          <span>Organization</span>
-          <input type="text" name="org" autocomplete="organization" required />
-        </label>
+  <label>
+    <span>Organization</span>
+    <input type="text" name="org" autocomplete="organization" required />
+  </label>
 
-        <label>
-          <span>Email</span>
-          <input type="email" name="email" autocomplete="email" required />
-        </label>
+  <label>
+    <span>Email</span>
+    <input type="email" name="email" autocomplete="email" required />
+  </label>
 
-        <label>
-          <span>Message</span>
-          <textarea name="message" rows="4" placeholder="What problem are you solving?" required></textarea>
-        </label>
+  <label>
+    <span>Message</span>
+    <textarea name="message" rows="4" placeholder="What problem are you solving?" required></textarea>
+  </label>
 
-        <button class="btn btn--primary btn--full" type="submit">
-          Send
-        </button>
+  <button class="btn btn--primary btn--full" type="submit">Send</button>
 
-        <p class="fineprint">
-          We respond promptly. If you prefer, email us directly.
-        </p>
-
-        <p id="formStatus" class="fineprint" style="display:none;"></p>
-
-      </form>
+  <p class="fineprint">We respond promptly. If you prefer, email us directly.</p>
+</form>
 
     </div>
   </div>
