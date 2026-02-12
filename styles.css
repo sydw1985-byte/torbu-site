@@ -170,9 +170,9 @@ img{max-width:100%;height:auto;display:block}
   background: linear-gradient(
     45deg,
     #EE805A 0%,
-    #F28A5D 35%,
-    #F6B061 65%,
-    #F7D861 85%,
+    #F28A5D 25%,
+    #F6B061 55%,
+    #F7D861 75%,
     #DDE35A 100%
   );
 }
