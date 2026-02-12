@@ -166,14 +166,14 @@ img{max-width:100%;height:auto;display:block}
   padding:110px 0 90px;
   overflow:hidden;
 
-  /* darker lower-left → lighter upper-right */
+  /* darker lower-left → lighter upper-right (slightly lighter orange) */
   background: linear-gradient(
     45deg,
-    #E46A48 0%,
-    #F07F57 35%,
-    #F4A85C 65%,
-    #F6D35B 85%,
-    #D6DC4F 100%
+    #EA7753 0%,
+    #F28A5D 35%,
+    #F6B061 65%,
+    #F7D861 85%,
+    #DDE35A 100%
   );
 }
 
