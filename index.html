@@ -57,65 +57,29 @@
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__copy">
-          <p class="kicker">Readiness • Learning • Oversight</p>
-          <h1 class="h1">Built for chains of command.</h1>
-          <p class="lead">
-            TORBU is a readiness and learning platform for structured organizations that require
-            clear oversight and measurable outcomes.
-          </p>
+<section class="hero">
+  <div class="container hero__inner hero__inner--single">
+    <div class="hero__copy hero__copy--overlay">
+      <p class="kicker">Readiness • Learning • Oversight</p>
+      <h1 class="h1">Built for chains of command.</h1>
+      <p class="lead">
+        TORBU is a readiness and learning platform for structured organizations that require
+        clear oversight and measurable outcomes.
+      </p>
 
-          <div class="hero__buttons">
-            <a class="btn btn--primary" href="#contact">Request a demo</a>
-            <a class="btn btn--ghost" href="#product">View product</a>
-          </div>
-
-          <div class="trust">
-            <div class="trust__pill">Hierarchy-aware roles</div>
-            <div class="trust__pill">Dashboards & reporting</div>
-            <div class="trust__pill">Feedback loops</div>
-          </div>
-        </div>
-
-        <div class="hero__visual" aria-hidden="true">
-          <!-- Brand-style gradient panel + abstract mark -->
-          <div class="panel">
-            <div class="panel__mark"></div>
-            <div class="panel__glow"></div>
-
-            <!-- Journey line + checkpoints -->
-            <svg class="journey" viewBox="0 0 520 420" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="journeyStroke" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#D6FC49"/>
-                  <stop offset="1" stop-color="#035157"/>
-                </linearGradient>
-                <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="4" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-
-              <path d="M30,340 C120,310 140,220 210,210 C280,200 300,120 380,100 C450,80 470,40 490,30"
-                    fill="none" stroke="url(#journeyStroke)" stroke-width="6" stroke-linecap="round"/>
-
-              <!-- checkpoints -->
-              <g filter="url(#softGlow)">
-                <circle cx="30" cy="340" r="10" fill="#D6FC49" stroke="#035157" stroke-width="3"/>
-                <circle cx="210" cy="210" r="10" fill="#D6FC49" stroke="#035157" stroke-width="3"/>
-                <circle cx="380" cy="100" r="10" fill="#D6FC49" stroke="#035157" stroke-width="3"/>
-                <circle cx="490" cy="30"  r="10" fill="#D6FC49" stroke="#035157" stroke-width="3"/>
-              </g>
-            </svg>
-          </div>
-        </div>
+      <div class="hero__buttons">
+        <a class="btn btn--primary" href="#contact">Request a demo</a>
+        <a class="btn btn--ghost btn--ghost-on-hero" href="#product">View product</a>
       </div>
-    </section>
+
+      <div class="trust">
+        <div class="trust__pill trust__pill--on-hero">Hierarchy-aware roles</div>
+        <div class="trust__pill trust__pill--on-hero">Dashboards &amp; reporting</div>
+        <div class="trust__pill trust__pill--on-hero">Feedback loops</div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- PRODUCT -->
     <section class="section" id="product">
