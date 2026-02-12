@@ -142,14 +142,18 @@ img{max-width:100%;height:auto;display:block}
 /* HERO (Torbu orange gradient, no image) */
 .hero{
   position:relative;
-  padding: 108px 0 84px;
+  padding:108px 0 84px;
   overflow:hidden;
 
-  /* Torbu orange gradient */
+  /* Torbu-style warm→deep */
   background:
-    radial-gradient(900px 520px at 18% 20%, rgba(214,252,73,.22) 0%, rgba(214,252,73,0) 55%),
-    radial-gradient(760px 460px at 72% 34%, rgba(252,124,87,.28) 0%, rgba(252,124,87,0) 60%),
-    linear-gradient(135deg, rgba(252,124,87,.98) 0%, rgba(252,124,87,.84) 35%, rgba(3,81,87,.92) 100%);
+    radial-gradient(900px 520px at 18% 20%, rgba(214,252,73,.18) 0%, rgba(214,252,73,0) 58%),
+    radial-gradient(760px 460px at 72% 34%, rgba(252,124,87,.22) 0%, rgba(252,124,87,0) 62%),
+    linear-gradient(135deg,
+      #FC7C57 0%,
+      rgba(252,124,87,.86) 28%,
+      rgba(3,81,87,.94) 100%
+    );
 }
 
 /* Keep overlay subtle (so gradient shows) */
@@ -158,7 +162,7 @@ img{max-width:100%;height:auto;display:block}
   position:absolute;
   inset:0;
   pointer-events:none;
-  background: linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.10) 55%, rgba(0,0,0,.22) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.08) 55%, rgba(0,0,0,.20) 100%);
 }
 
 .hero .container{position:relative; z-index:1;}
@@ -234,22 +238,12 @@ img{max-width:100%;height:auto;display:block}
   border-bottom:1px solid var(--line);
 }
 .section__head{margin-bottom:28px}
+.section .section__head{margin-bottom: 28px;}
 
-.h2{
-  margin:0;
-  font-size: 13px;
-  font-weight:600;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:rgba(3,81,87,.92);
-}
-.subhead{
-  margin:14px 0 0;
-  font-size: 18px;
-  line-height:1.7;
-  color:rgba(31,35,34,.82);
-  max-width: 72ch;
-}
+.subhead{margin:14px 0 0; ...}
+.section .subhead{margin-top: 14px;}
+
+
 /* Ultra-min sector list */
 .sector-list{
   margin:0;
@@ -292,6 +286,41 @@ img{max-width:100%;height:auto;display:block}
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:18px;
+}
+
+/* Industry Grid */
+.industry-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap:50px;
+  margin-top:60px;
+  max-width:820px;
+}
+
+.industry{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:16px;
+}
+
+.industry__icon{
+  color:var(--midnight);
+}
+
+.industry__label{
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:-.01em;
+}
+
+/* Force consistent measure without HTML changes */
+.section .section__head,
+.section .grid2,
+.section .grid3,
+.section .steps,
+.section .cta{
+  max-width:820px;
 }
 
 /* Cards (minimal, no heavy shadows) */
