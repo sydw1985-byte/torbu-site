@@ -125,22 +125,30 @@ img{max-width:100%;height:auto;display:block}
 
 /* Mobile toggle */
 .nav__toggle{
-  display:none;
-  width:40px;
-  height:40px;
-  background:none;
-  border:none;
+  display:none;              /* shown in mobile media query */
+  width:44px;
+  height:44px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.75);
   cursor:pointer;
-  position:relative;
-  padding:0;
+
+  /* force 3-line stack */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+
+  padding:0;                 /* important */
 }
+
 .nav__toggle span{
   display:block;
   width:22px;
   height:2px;
   background:var(--midnight);
-  margin:5px auto;
-  transition:all .25s ease;
+  border-radius:2px;
 }
 
 /* HERO — keep gradient colors/percentages AS-IS */
