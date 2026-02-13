@@ -230,42 +230,61 @@
 
       <!-- LIVE FORM -->
       <form
-  class="form"
-  id="contactForm"
-  method="POST"
-  action="https://script.google.com/macros/s/AKfycbw4mKp8JVZWoPWMRoBKz_NiE4vnxBoJDomfXTsQx_q-6rmNMhe_Ogz4ei4t3_-Rotv9oQ/exec"
->
-  <!-- Honeypot -->
-  <input type="text" name="company" style="display:none">
+        class="form"
+        id="contactForm"
+        method="POST"
+        action="https://script.google.com/macros/s/AKfycbw4mKp8JVZWoPWMRoBKz_NiE4vnxBoJDomfXTsQx_q-6rmNMhe_Ogz4ei4t3_-Rotv9oQ/exec"
+        novalidate
+      >
 
-  <!-- reCAPTCHA token (filled by JS) -->
-  <input type="hidden" name="recaptchaToken" id="recaptchaToken">
-  <input type="hidden" name="recaptchaAction" value="contact_submit">
+        <!-- Honeypot (hidden from humans, visible to bots) -->
+        <input
+          type="text"
+          name="company"
+          autocomplete="off"
+          tabindex="-1"
+          aria-hidden="true"
+          style="position:absolute;left:-9999px;"
+        >
 
-  <label>
-    <span>Name</span>
-    <input type="text" name="name" autocomplete="name" required />
-  </label>
+        <!-- reCAPTCHA v3 hidden fields -->
+        <input type="hidden" name="recaptchaToken" id="recaptchaToken">
+        <input type="hidden" name="recaptchaAction" value="contact_submit">
 
-  <label>
-    <span>Organization</span>
-    <input type="text" name="org" autocomplete="organization" required />
-  </label>
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
 
-  <label>
-    <span>Email</span>
-    <input type="email" name="email" autocomplete="email" required />
-  </label>
+        <label>
+          <span>Organization</span>
+          <input type="text" name="org" autocomplete="organization" required>
+        </label>
 
-  <label>
-    <span>Message</span>
-    <textarea name="message" rows="4" placeholder="What problem are you solving?" required></textarea>
-  </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
 
-  <button class="btn btn--primary btn--full" type="submit">Send</button>
+        <label>
+          <span>Message</span>
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="What problem are you solving?"
+            required
+          ></textarea>
+        </label>
 
-  <p class="fineprint">We respond promptly. If you prefer, email us directly.</p>
-</form>
+        <button class="btn btn--primary btn--full" type="submit">
+          Send
+        </button>
+
+        <p class="fineprint">
+          We respond promptly. If you prefer, email us directly.
+        </p>
+
+      </form>
 
     </div>
   </div>
