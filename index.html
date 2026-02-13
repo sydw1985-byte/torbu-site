@@ -23,43 +23,52 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="#main" aria-label="Torbu home">
-        <img
-          class="brand__logo"
-          src="assets/torbu-logo-horizontal-green.png"
-          alt="TORBU"
-          loading="eager"
-          decoding="async"
-        />
-      </a>
+  <div class="container header__inner">
+    <a class="brand" href="#main" aria-label="Torbu home">
+      <img
+        class="brand__logo"
+        src="assets/torbu-logo-horizontal-green.png"
+        alt="TORBU"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="nav__link" href="#focus">Focus</a>
-        <a class="nav__link" href="#how">How it works</a>
-        <a class="nav__link" href="#why">Why now</a>
-        <a class="nav__link" href="#contact">Contact</a>
-      </nav>
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="nav__link" href="#focus">Focus</a>
+      <a class="nav__link" href="#how">How it works</a>
+      <a class="nav__link" href="#why">Why now</a>
+      <a class="nav__link" href="#contact">Contact</a>
+    </nav>
 
-      <div class="header__cta">
-        <a class="btn btn--primary" href="#contact">Contact</a>
-        <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+    <div class="header__cta">
+      <a class="btn btn--primary" href="#contact">Contact</a>
+
+      <!-- ✅ Mobile hamburger toggle -->
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="drawer"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
 
-    <!-- Mobile drawer -->
-    <div class="drawer" id="drawer" hidden>
-      <nav class="drawer__nav" aria-label="Mobile navigation">
-        <a class="drawer__link" href="#focus">Focus</a>
-        <a class="drawer__link" href="#how">How it works</a>
-        <a class="drawer__link" href="#why">Why now</a>
-        <a class="drawer__link" href="#contact">Contact</a>
-        <a class="btn btn--primary drawer__btn" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- ✅ Mobile drawer (only one, id matches aria-controls) -->
+  <div class="drawer" id="drawer" hidden>
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a class="drawer__link" href="#focus">Focus</a>
+      <a class="drawer__link" href="#how">How it works</a>
+      <a class="drawer__link" href="#why">Why now</a>
+      <a class="drawer__link" href="#contact">Contact</a>
+      <a class="btn btn--primary drawer__btn" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <main id="main">
     <!-- HERO -->
