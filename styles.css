@@ -123,9 +123,9 @@ img{max-width:100%;height:auto;display:block}
 }
 .btn--full{width:100%}
 
-/* Mobile toggle */
+/* Mobile toggle (single source of truth) */
 .nav__toggle{
-  display:none;              /* shown in mobile media query */
+  display:none; /* hidden on desktop */
   width:44px;
   height:44px;
   border:1px solid var(--line);
@@ -133,14 +133,12 @@ img{max-width:100%;height:auto;display:block}
   background:rgba(255,255,255,.75);
   cursor:pointer;
 
-  /* force 3-line stack */
-  display:flex;
+  /* 3-line stack */
+  padding:0;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   gap:6px;
-
-  padding:0;                 /* important */
 }
 
 .nav__toggle span{
@@ -515,23 +513,6 @@ input:focus,textarea:focus{
   gap:14px;
   flex-wrap:wrap;
   color:rgba(31,35,34,.82);
-}
-
-.nav__toggle{
-  display:none;
-  background:none;
-  border:none;
-  cursor:pointer;
-  padding:8px;
-}
-
-.nav__toggle span{
-  display:block;
-  width:22px;
-  height:2px;
-  background:var(--midnight);
-  margin:5px 0;
-  transition:.2s ease;
 }
 
 /* Show hamburger on mobile */
