@@ -139,6 +139,26 @@ img{max-width:100%;height:auto;display:block}
 }
 .btn--full{width:100%}
 
+.nav__toggle{
+  display:none;
+  width:40px;
+  height:40px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  position:relative;
+  padding:0;
+}
+
+.nav__toggle span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:var(--midnight);
+  margin:5px auto;
+  transition:all .25s ease;
+}
+
 /* HERO — keep gradient colors/percentages AS-IS */
 .hero{
   position:relative;
@@ -377,6 +397,14 @@ img{max-width:100%;height:auto;display:block}
 
   .header__cta .btn.btn--primary{
     display:none;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .nav__toggle{
+    display:block;
   }
 
 }
