@@ -44,10 +44,11 @@ if (form) {
         if (!res.ok) throw new Error(text || "Submission failed");
       }
 
-      window.location.href = "./thank-you.html";
+            window.location.href = "./thank-you.html";
+
     } catch (err) {
-      console.error("Form submit error:", err);
-      alert("Something went wrong. Please email info@torbu.com.");
+      console.error(err);
+      alert("Error: " + (err && err.message ? err.message : err));
     }
   });
 }
