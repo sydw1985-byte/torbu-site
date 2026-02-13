@@ -367,12 +367,18 @@ img{max-width:100%;height:auto;display:block}
 
 /* Mobile */
 @media (max-width: 900px){
+
   .steps{
     grid-template-columns:1fr;
     gap:28px;
     padding-top:34px;
     margin-top:32px;
   }
+
+  .header__cta .btn.btn--primary{
+    display:none;
+  }
+
 }
 /* Why Now */
 .why-now__body{
