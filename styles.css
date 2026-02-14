@@ -400,6 +400,10 @@ img{max-width:100%;height:auto;display:block}
 }
 
 /* Integrations (dynamic, minimal) */
+#integrations .section__head {
+  margin-bottom: 36px;
+}
+
 .integrate__stack{
   max-width: 860px;
   margin: 22px auto 0;
@@ -413,7 +417,7 @@ img{max-width:100%;height:auto;display:block}
   backdrop-filter: blur(8px);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
   outline: none;
-  text-align: left;
+  text-align: center;
 }
 
 .integrate__kicker{
@@ -423,9 +427,12 @@ img{max-width:100%;height:auto;display:block}
 }
 
 .integrate__items{
-  margin-top: 6px;
+  margin-top: 10px;
+  line-height: 1.75;
+  max-width: 58ch;
+  margin-left: auto;
+  margin-right: auto;
   color: rgba(31,35,34,.82);
-  line-height: 1.7;
 }
 
 .integrate__connector{
