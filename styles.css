@@ -568,31 +568,46 @@ input:focus,textarea:focus{
 }
 
 /* Footer */
-.footer{padding:28px 0 44px}
+.footer{
+  padding:48px 0 56px;  /* more breathing room */
+}
+
 .footer__inner{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
-  gap:16px;
+  gap:32px;             /* more separation between left and right */
   border-top:1px solid var(--line);
-  padding-top:18px;
+  padding-top:28px;     /* slightly more top spacing */
 }
+
 .footer__brand{
   font-weight:600;
   letter-spacing:.04em;
   color:var(--midnight);
 }
+
 .footer__tag{
   font-size:13px;
   color:rgba(31,35,34,.78);
   margin-top:6px;
 }
+
+.footer__right{
+  display:flex;
+  gap:24px;             /* spacing between links */
+  flex-wrap:wrap;
+}
+
 .footer__right a{
   font-size:14px;
   color:rgba(31,35,34,.86);
   letter-spacing:.01em;
 }
-.footer__right a:hover{ opacity:.85; }
+
+.footer__right a:hover{
+  opacity:.85;
+}
 
 /* Show hamburger on mobile */
 @media (max-width: 900px){
