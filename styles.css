@@ -398,6 +398,78 @@ img{max-width:100%;height:auto;display:block}
   }
 
 }
+
+/* Integrations (dynamic, minimal) */
+.integrate__stack{
+  max-width: 860px;
+  margin: 22px auto 0;
+}
+
+.integrate__card{
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(8px);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  outline: none;
+  text-align: left;
+}
+
+.integrate__kicker{
+  font-weight: 650;
+  letter-spacing: .2px;
+  color: var(--midnight);
+}
+
+.integrate__items{
+  margin-top: 6px;
+  color: rgba(31,35,34,.82);
+  line-height: 1.7;
+}
+
+.integrate__connector{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0;
+  font-size: 13px;
+  opacity: .65;
+  user-select: none;
+}
+
+.integrate__arrow{
+  font-weight: 700;
+  opacity: .7;
+}
+
+.integrate__meta{
+  letter-spacing: .02em;
+}
+
+.integrate__caption{
+  margin: 14px auto 0;
+  font-size: 13px;
+  opacity: .78;
+  max-width: 82ch;
+}
+
+/* Hover/focus highlight (simple “dynamic”) */
+.integrate__card:hover,
+.integrate__card:focus-visible{
+  transform: translateY(-1px);
+  border-color: rgba(3,81,87,.35);
+  background: rgba(214,252,73,.10);
+  box-shadow: 0 10px 30px rgba(3,81,87,.10);
+}
+
+/* Mobile alignment (match your CTA section behavior) */
+@media (max-width: 900px){
+  .integrate__card{ text-align: left; }
+  .integrate__caption{ padding: 0 4px; }
+}
+
 /* Why Now */
 .why-now__body{
   max-width: 640px;
