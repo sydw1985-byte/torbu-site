@@ -41,8 +41,8 @@ if (form) {
     }
 
     const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn ? btn.textContent : "";
-    if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+    if (btn) { btn.disabled = true; btn.classList.add("is-loading"); }
+
 
     // Required fields
     const name = form.name.value.trim();
@@ -52,7 +52,7 @@ if (form) {
 
     if (!name || !org || !email || !message) {
       alert("Please complete name, organization, email, and message.");
-      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+      if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
       return;
     }
 
@@ -82,7 +82,7 @@ if (form) {
       alert(err && err.message ? err.message : "Could not send. Please try again.");
     } finally {
       try { window.turnstile.reset(widget); } catch {}
-      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+      if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
     }
   });
 }
