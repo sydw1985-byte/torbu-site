@@ -130,6 +130,34 @@ img{max-width:100%;height:auto;display:block}
 }
 .btn--full{width:100%}
 
+.btn{
+  position:relative;
+}
+
+.btn__spinner{
+  display:none;
+  width:14px;
+  height:14px;
+  border:2px solid currentColor;
+  border-right-color: transparent;
+  border-radius:999px;
+  margin-left:10px;
+  vertical-align:middle;
+  animation: btnspin .8s linear infinite;
+}
+
+.btn.is-loading .btn__spinner{
+  display:inline-block;
+}
+
+.btn.is-loading{
+  opacity:.95;
+}
+
+@keyframes btnspin{
+  to { transform: rotate(360deg); }
+}
+
 /* Mobile toggle (single source of truth) */
 .nav__toggle{
   display:none; /* hidden on desktop */
