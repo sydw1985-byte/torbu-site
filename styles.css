@@ -321,8 +321,8 @@ img{max-width:100%;height:auto;display:block}
 /* How it works — procedural (not cards) */
 .steps{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:40px;
+  grid-template-columns:repeat(4, 1fr);
+  gap:30px;
 
   max-width:900px;
   margin:40px auto 0;
