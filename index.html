@@ -7,8 +7,8 @@
   <title>TORBU — Operating Intelligence for Regulated Systems</title>
   <meta name="description" content="TORBU defines standards, structure, and oversight so intelligent systems operate with clear accountability." />
 
-  <!-- reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LcphWksAAAAAA9gfOwjBuMDWHQY2PQ_GDStFNPU"></script>
+  <!-- Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -303,8 +303,7 @@ and results roll up.</strong>
               class="form"
               id="contactForm"
               method="POST"
-              target="hidden_iframe"
-              action="https://script.google.com/macros/s/AKfycbw4mKp8JVZWoPWMRoBKz_NiE4vnxBoJDomfXTsQx_q-6rmNMhe_Ogz4ei4t3_-Rotv9oQ/exec"
+              action="https://orange-wind-4bed.syd-ab8.workers.dev/submit"
               novalidate
             >
             <!-- Honeypot -->
@@ -316,10 +315,10 @@ and results roll up.</strong>
               aria-hidden="true"
               style="position:absolute;left:-9999px;"
             >
-
-            <!-- reCAPTCHA v3 hidden fields -->
-            <input type="hidden" name="recaptchaToken" id="recaptchaToken">
-            <input type="hidden" name="recaptchaAction" value="contact_submit">
+            <!-- Turnstile (invisible) -->
+            <div class="cf-turnstile"
+              data-sitekey="0x4AAAAAACcnvT_VJJnqRu3U"
+              data-size="invisible"></div>
 
             <label>
               <span>Name</span>
@@ -367,21 +366,14 @@ and results roll up.</strong>
       <div class="footer__right">
         <a href="#focus">Focus</a>
         <a href="#how">How it works</a>
-        <a class="nav__link" href="#integrations">Integrations</a>
-        <a class="nav__link" href="#why">Why now</a>
+        <a href="#integrations">Integrations</a>
+        <a href="#why">Why now</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
-    <!-- reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LcphWksAAAAAA9gfOwjBuMDWHQY2PQ_GDStFNPU"></script>
-
   <!-- Your JS (cache-busted) -->
   <script src="app.js?v=10"></script>
-  <!-- Hidden iFrame -->
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-</body>
-</html>
 </body>
 </html>
