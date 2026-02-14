@@ -587,12 +587,12 @@ input:focus,textarea:focus{
   color:rgba(31,35,34,.78);
   margin-top:6px;
 }
-.footer__right{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  color:rgba(31,35,34,.82);
+.footer__right a{
+  font-size:14px;
+  color:rgba(31,35,34,.86);
+  letter-spacing:.01em;
 }
+.footer__right a:hover{ opacity:.85; }
 
 /* Show hamburger on mobile */
 @media (max-width: 900px){
