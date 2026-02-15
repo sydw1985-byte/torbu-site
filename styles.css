@@ -88,13 +88,22 @@ img{max-width:100%;height:auto;display:block}
   gap:10px;
   padding:14px 24px 20px;
 }
-.drawer__nav a{
+/* Drawer links (but NOT buttons) */
+.drawer__nav a:not(.btn){
   padding:10px 12px;
   border-radius:14px;
   border:1px solid var(--line);
   background:rgba(255,255,255,.75);
   display:block;
 }
+
+/* Ensure the Contact button keeps primary styling inside drawer */
+.drawer__btn.btn--primary{
+  background:var(--midnight);
+  color:#fff;
+  border-color:rgba(3,81,87,.35);
+}
+
 .drawer__link{
   padding:10px 12px;
   border-radius:14px;
