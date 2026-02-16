@@ -497,6 +497,136 @@ img{max-width:100%;height:auto;display:block}
   opacity: .78;
   max-width: 82ch;
 }
+/* ---------- Ecosystem Model diagram ---------- */
+
+.eco{ margin-top:26px; }
+.eco__divider{
+  height:1px;
+  background:var(--line);
+  margin:18px 0 20px;
+  opacity:.9;
+}
+
+.eco__head{ margin-bottom:14px; }
+.eco__title{ margin:0 0 6px; }
+.eco__subhead{
+  margin:0;
+  color:rgba(31,35,34,.78);
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* 3-column cards */
+.eco__grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:16px;
+  margin-top:14px;
+  padding-bottom:26px; /* room for connectors */
+}
+
+.eco__card{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.78);
+  padding:16px 16px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  backdrop-filter:saturate(120%) blur(8px);
+}
+
+.eco__kicker{
+  font-weight:650;
+  letter-spacing:.01em;
+  color:var(--midnight);
+  margin-bottom:10px;
+}
+
+.eco__bullets{
+  margin:0;
+  padding-left:16px;
+  color:rgba(31,35,34,.82);
+  font-size:14px;
+  line-height:1.55;
+}
+.eco__bullets li{ margin:6px 0; }
+
+/* Connector lines from each card down to TORBU */
+.eco__card::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:100%;
+  width:1px;
+  height:22px;
+  background:var(--line);
+  transform:translateX(-50%);
+  opacity:.95;
+}
+
+/* Center TORBU block */
+.eco__center{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:16px 18px 14px;
+  background:rgba(214,252,73,.14); /* uses your lime theme subtly */
+  box-shadow:0 12px 34px rgba(0,0,0,.08);
+  max-width:520px;
+  margin:0 auto;
+  text-align:center;
+}
+
+/* small “TORBU” badge */
+.eco__badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.7);
+  font-weight:700;
+  letter-spacing:.06em;
+  font-size:12px;
+  color:var(--midnight);
+}
+
+.eco__centerTitle{
+  margin-top:10px;
+  font-weight:650;
+  color:var(--midnight);
+  letter-spacing:.01em;
+}
+.eco__centerText{
+  margin-top:8px;
+  color:rgba(31,35,34,.82);
+  font-size:14px;
+  line-height:1.55;
+}
+
+.eco__caption{
+  margin:12px 0 0;
+  text-align:center;
+  font-size:13px;
+  color:rgba(31,35,34,.76);
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .eco__grid{
+    grid-template-columns:1fr;
+    gap:14px;
+    padding-bottom:10px;
+  }
+  .eco__card::after{
+    height:12px;
+    opacity:.65;
+  }
+  .eco__center{
+    max-width:100%;
+    margin-top:6px;
+  }
+}
 
 /* Hover/focus highlight (simple “dynamic”) */
 .integrate__card:hover,
