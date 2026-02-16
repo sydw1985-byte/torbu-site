@@ -263,6 +263,37 @@ img{max-width:100%;height:auto;display:block}
   gap:22px;
   align-items:start;
 }
+/* --- Sectors row --- */
+.sectors{
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  flex-wrap:wrap;        /* allows wrap on medium screens */
+  align-items:flex-start;
+  margin-top:24px;
+}
+
+.sector{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  min-width:110px;       /* prevents collapsing */
+  text-align:center;
+}
+
+/* --- Mobile stack --- */
+@media (max-width: 720px){
+  .sectors{
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+
+  .sector{
+    min-width:0;
+  }
+}
 
 /* HOW IT WORKS steps */
 .steps{
