@@ -24,62 +24,50 @@
 
   <!-- HEADER -->
   <header class="header">
-    <div class="container header__inner">
+  <div class="container header__inner">
+    <a class="brand" href="#main" aria-label="TORBU home">
+      <img class="brand__logo"
+           src="assets/torbu-logo-horizontal-green.png"
+           alt="TORBU"
+           loading="eager"
+           decoding="async" />
+    </a>
 
-      <!-- Brand -->
-      <a class="brand" href="#main" aria-label="TORBU home">
-        <img
-          class="brand__logo"
-          src="assets/torbu-logo-horizontal-green.png"
-          alt="TORBU"
-          loading="eager"
-          decoding="async"
-        />
-      </a>
+    <!-- Centered desktop nav -->
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav__links nav__links--desktop">
+        <a class="nav__link" href="#focus">Focus</a>
+        <a class="nav__link" href="#how">How it works</a>
+        <a class="nav__link" href="#architecture">Architecture</a>
+        <a class="nav__link" href="#why">Why now</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </div>
+    </nav>
 
-      <!-- Desktop nav + CTA + Mobile toggle -->
-      <nav class="nav" aria-label="Primary navigation">
+    <!-- Mobile hamburger only -->
+    <button
+      class="nav__toggle"
+      id="navToggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="drawer"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-        <!-- Desktop links (hidden on desktop per your request, but available for layout if you change later) -->
-        <div class="nav__links nav__links--desktop">
-          <a class="nav__link" href="#focus">Focus</a>
-          <a class="nav__link" href="#how">How it works</a>
-          <a class="nav__link" href="#architecture">Architecture</a>
-          <a class="nav__link" href="#why">Why now</a>
-          <a class="nav__link" href="#contact">Contact</a>
-        </div>
-
-        <!-- Desktop-only green CTA -->
-        <a class="btn btn--primary nav__cta" href="#contact">Contact</a>
-
-        <!-- Mobile-only hamburger -->
-        <button
-          class="nav__toggle"
-          id="navToggle"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="drawer"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-      </nav>
-    </div>
-
-    <!-- Mobile drawer -->
-    <div class="drawer" id="drawer" hidden>
-      <nav class="drawer__nav" aria-label="Mobile navigation">
-        <a class="drawer__link" href="#focus">Focus</a>
-        <a class="drawer__link" href="#how">How it works</a>
-        <a class="drawer__link" href="#architecture">Architecture</a>
-        <a class="drawer__link" href="#why">Why now</a>
-        <a class="drawer__link" href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" hidden>
+    <nav class="drawer__nav" aria-label="Mobile navigation">
+      <a class="drawer__link" href="#focus">Focus</a>
+      <a class="drawer__link" href="#how">How it works</a>
+      <a class="drawer__link" href="#architecture">Architecture</a>
+      <a class="drawer__link" href="#why">Why now</a>
+      <a class="drawer__link" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <main id="main">
     <!-- HERO -->
