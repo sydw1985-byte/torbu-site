@@ -263,20 +263,20 @@ img{max-width:100%;height:auto;display:block}
   gap:22px;
   align-items:start;
 }
-/* --- Sectors row (single source of truth) --- */
-.sectors{
+
+/* Industries row (single source of truth) */
+.industry-grid{
   display:flex;
-  flex-direction:row;
   justify-content:center;
   align-items:flex-start;
   gap:32px;
-  flex-wrap:wrap;          /* wraps on mid-size screens */
+  flex-wrap:wrap;
   margin-top:24px;
   width:100%;
 }
 
-.sector{
-  flex:0 0 auto;           /* prevents full-width stacking */
+.industry{
+  flex:0 0 auto;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -285,29 +285,19 @@ img{max-width:100%;height:auto;display:block}
   text-align:center;
 }
 
-/* FORCE desktop to stay horizontal even if inside a narrower column */
-@media (min-width: 901px){
-  .sectors{
-    flex-wrap:nowrap;      /* prevents “one per line” in narrow columns */
-    gap:28px;
-  }
-  .sector{
-    min-width:0;           /* lets them shrink a bit instead of stacking */
-  }
-}
-
-/* --- Mobile stack --- */
+/* Mobile: stack vertically */
 @media (max-width: 720px){
-  .sectors{
+  .industry-grid{
     flex-direction:column;
     align-items:center;
     gap:20px;
+    flex-wrap:nowrap;
   }
-
-  .sector{
+  .industry{
     min-width:0;
   }
 }
+
 /* Industries row */
 .industry-grid{
   display:flex;
