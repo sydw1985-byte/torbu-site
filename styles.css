@@ -463,6 +463,19 @@ img{max-width:100%;height:auto;display:block}
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(3,81,87,.06);
 }
+/* WHY NOW — unify paragraph styling */
+.why-now__body{
+  margin:16px auto 0;
+  max-width:74ch;
+  font-size:16px;
+  line-height:1.7;
+  color:rgba(31,35,34,.80);
+}
+
+/* Optional: slightly tighter spacing between the last two */
+.why-now__body + .why-now__body{
+  margin-top:12px;
+}
 
 /* Contact */
 .form{
@@ -491,6 +504,11 @@ input,textarea{
 input:focus,textarea:focus{
   border-color:rgba(3,81,87,.50);
   box-shadow:0 0 0 4px rgba(214,252,73,.22);
+}
+/* Contact submit button text color */
+#contact .btn--primary,
+#contact button[type="submit"]{
+  color:#fff !important;
 }
 .fineprint{
   margin:10px 0 0;
