@@ -101,6 +101,19 @@ img{max-width:100%;height:auto;display:block}
 .btn--ghost:hover{background:rgba(255,255,255,.35)}
 .btn--full{width:100%}
 
+/* Nav CTA sizing */
+.nav .btn--primary{
+  padding:10px 14px;         /* narrower */
+  line-height:1;             /* keeps it compact */
+  border-radius:14px;
+  font-size:14px;
+  font-weight:600;
+  height:40px;               /* set to match your brand row height */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
 /* Header */
 .header{
   position:sticky;
