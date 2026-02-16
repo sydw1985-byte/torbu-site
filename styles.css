@@ -564,14 +564,36 @@ img{max-width:100%;height:auto;display:block}
   margin-bottom:10px;
 }
 
+.eco__card{
+  text-align:center;
+}
 .eco__bullets{
-  list-style: disc;
-  padding-left:18px;
-  margin:8px 0 0;
+  display:inline-block;
+  text-align:left;     /* keeps bullet text readable */
+}
+
+.eco__bullets{
+  list-style:none;
+  margin:10px 0 0;
+  padding:0;
 }
 
 .eco__bullets li{
+  position:relative;
+  padding-left:14px;   /* space for dot */
   margin:6px 0;
+  line-height:1.45;
+}
+
+.eco__bullets li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.62em;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:rgba(3,81,87,.55); /* subtle teal */
 }
 
 /* Connector lines from each card down to TORBU */
