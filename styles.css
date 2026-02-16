@@ -310,10 +310,14 @@ img{max-width:100%;height:auto;display:block}
   padding:18px 16px 16px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
-.checkpoint{
-  width:10px;height:10px;border-radius:999px;
-  border:2px solid rgba(3,81,87,.55);
-  margin:0 auto 10px;
+checkpoint{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:var(--lime);
+  border:2px solid var(--midnight);
+  box-shadow:0 0 14px rgba(214,252,73,.35);
+  margin:0 auto 16px;
 }
 
 /* ARCHITECTURE layer stack */
