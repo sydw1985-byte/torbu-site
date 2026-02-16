@@ -517,7 +517,9 @@ img{max-width:100%;height:auto;display:block}
 }
 
 .eco__title{
+  margin:0 0 6px;
   font-size:13px;
+  font-weight:600;
   letter-spacing:.18em;
   text-transform:uppercase;
   color:rgba(3,81,87,.92);
@@ -789,12 +791,6 @@ input:focus,textarea:focus{
 .footer__right a:hover{
   opacity:.85;
 }
-
-/* Show hamburger on mobile */
-@media (max-width: 900px){
-  .nav__links{
-    display:none;
-  }
 
   .nav__toggle{
     display:block;
