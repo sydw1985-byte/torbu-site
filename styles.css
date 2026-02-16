@@ -557,13 +557,14 @@ img{max-width:100%;height:auto;display:block}
 }
 
 .eco__bullets{
-  margin:0;
-  padding-left:16px;
-  color:rgba(31,35,34,.82);
-  font-size:14px;
-  line-height:1.55;
+  list-style: disc;
+  padding-left: 18px;   /* tighter */
+  margin: 8px 0 0;
 }
-.eco__bullets li{ margin:6px 0; }
+
+.eco__bullets li{
+  margin: 6px 0;        /* slightly tighter vertical rhythm */
+}
 
 /* Connector lines from each card down to TORBU */
 .eco__card::after{
