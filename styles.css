@@ -65,6 +65,11 @@ img{max-width:100%;height:auto;display:block}
   letter-spacing:-0.03em;
   line-height:1.02;
 }
+@media (max-width: 600px){
+  .hero .h1{
+    font-size: clamp(50px, 7vw, 64px);
+  }
+}
 .h2{
   font-size:28px;
   font-weight:600;
