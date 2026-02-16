@@ -111,107 +111,103 @@ img{max-width:100%;height:auto;display:block}
 .btn--ghost:hover{background:rgba(255,255,255,.35)}
 .btn--full{width:100%}
 
-/* Header layout: left logo | centered menu | right hamburger */
-/* ---------- Header / Nav (single source of truth) ---------- */
+/* HEADER / NAV — single truth */
 
 .header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(242,237,232,.86);
-  backdrop-filter:saturate(140%) blur(10px);
-  border-bottom:1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(242,237,232,.90);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--line);
 }
 
 .header__inner{
-  height:74px;                      /* controls header height */
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  gap:18px;
+  height: 74px;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | links | actions */
+  align-items: center;
+  gap: 18px;
 }
 
-/* Avoids second CTA elsewhere */
-.header__cta{ 
-  display:none !important; 
-}
-
-/* Logo sizing (this is why TORBU looked huge) */
-.brand{
-  display:flex;
-  align-items:center;
-}
+/* HARD-CONSTRAIN the logo so it cannot blow up */
+.brand{ display:flex; align-items:center; }
 .brand__logo{
-  height:34px;                      /* <-- tune: 30–38px */
-  width:auto;
+  height: 34px !important;
+  max-height: 34px !important;
+  width: auto !important;
+  max-width: 220px;
 }
 
-/* Centered nav */
+/* Center nav links */
 .nav{
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
 }
+
 .nav__links--desktop{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:22px;
-  white-space:nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  white-space: nowrap;
 }
+
 .nav__link{
-  font-size:15px;
-  color:rgba(31,35,34,.82);
+  font-size: 15px;
+  color: rgba(31,35,34,.82);
 }
-.nav__link:hover{ opacity:.9; }
 
-/* Right-side actions */
+/* Right-side actions (CTA + hamburger) */
 .nav__actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  justify-content:flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
-/* Green contact CTA (desktop) — narrower, matches header height */
+/* Desktop CTA: visible by default */
+.nav__cta{
+  display: inline-flex;
+}
+
+/* CTA sizing */
 .nav__cta.btn--primary{
-  height:40px;
-  padding:0 14px;
-  border-radius:14px;
-  font-size:14px;
-  line-height:1;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1;
 }
 
-/* Hamburger (mobile only) */
+/* Hamburger default hidden */
 .nav__toggle{
-  display:none;
-  width:44px;
-  height:44px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:rgba(255,255,255,.75);
-  cursor:pointer;
-  padding:0;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.75);
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
+
 .nav__toggle span{
   display:block;
   width:22px;
   height:2px;
-  background:var(--midnight);
-  border-radius:2px;
+  background: var(--midnight);
+  border-radius: 2px;
 }
 
-/* Mobile behavior:
-   - hide centered desktop links
-   - hide green CTA
-   - show hamburger
-*/
+/* Mobile behavior */
 @media (max-width: 900px){
   .nav__links--desktop{ display:none; }
-  .nav__cta{ display:none; }
+  .nav__cta{ display:none; }        /* hide green Contact on mobile */
   .nav__toggle{ display:inline-flex; }
 }
 
