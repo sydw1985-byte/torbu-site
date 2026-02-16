@@ -575,8 +575,8 @@ img{max-width:100%;height:auto;display:block}
   border:1px solid var(--line);
   border-radius:20px;
   padding:16px 18px 14px;
-  background:rgba(214,252,73,.12);
-  box-shadow:0 12px 34px rgba(0,0,0,.08);
+  background:rgba(255,255,255,.85);
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
 }
 
 .eco__badge{
