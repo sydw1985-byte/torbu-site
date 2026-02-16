@@ -22,39 +22,32 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- HEADER -->
   <header class="header">
   <div class="container header__inner">
-    <a class="brand" href="#main" aria-label="TORBU home">
-      <img class="brand__logo"
-           src="assets/torbu-logo-horizontal-green.png"
-           alt="TORBU"
-           loading="eager"
-           decoding="async" />
+    <a class="brand" href="#main" aria-label="Torbu home">
+      <img class="brand__logo" src="assets/torbu-logo-horizontal-green.png" alt="TORBU" />
     </a>
 
-    <!-- Centered desktop nav -->
+    <!-- Centered desktop nav links (NO Contact link here) -->
     <nav class="nav" aria-label="Primary navigation">
       <div class="nav__links nav__links--desktop">
         <a class="nav__link" href="#focus">Focus</a>
         <a class="nav__link" href="#how">How it works</a>
         <a class="nav__link" href="#architecture">Architecture</a>
         <a class="nav__link" href="#why">Why now</a>
-        <a class="nav__link" href="#contact">Contact</a>
       </div>
     </nav>
 
-    <!-- Mobile hamburger only -->
-    <button
-      class="nav__toggle"
-      id="navToggle"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="drawer"
-    >
-      <span></span><span></span><span></span>
-    </button>
+    <!-- Right side actions -->
+    <div class="nav__actions">
+      <!-- Desktop-only green CTA -->
+      <a class="btn btn--primary nav__cta" href="#contact">Contact</a>
+
+      <!-- Mobile-only hamburger -->
+      <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile drawer -->
@@ -84,7 +77,7 @@
 
 <p class="lead lead--secondary">
   <strong>TORBU ensures standards flow down—<br/>
-and verified results roll up.</strong>
+  and verified results roll up.</strong>
 </p>
 
 <p class="hero__subline">
@@ -110,17 +103,21 @@ and verified results roll up.</strong>
 <div class="sector-gravity">
   <p class="sector-gravity__water">
     As automation expands, oversight must scale with it.
-    </p>
+  </p>
+
   <p class="sector-gravity__water">
-    Across regulated environments:<br/>
-    </p>
+    Across regulated environments:
+  </p>
+
   <p class="sector-gravity__water">
     Standards must propagate.<br/>
     Performance must be visible.<br/>
     Responsibility must be traceable.
   </p>
+
   <p class="sector-gravity__bridge">
     TORBU establishes the governance model for durable traceability.
+  </p>
 </div>
 
         <div class="industry-grid">
