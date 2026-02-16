@@ -437,12 +437,12 @@ img{max-width:100%;height:auto;display:block}
 
 /* Show hamburger on mobile */
 @media (max-width: 900px){
-  .nav__links{
-    display: none;
+  .nav{
+    display:none;
   }
 
   .nav__toggle{
-    display: flex;
+    display:inline-flex;
   }
 }
 
