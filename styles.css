@@ -281,6 +281,20 @@ img{max-width:100%;height:auto;display:block}
   min-width:110px;       /* prevents collapsing */
   text-align:center;
 }
+/* Sectors — force horizontal on desktop */
+.sectors{
+  display:flex;
+  flex-direction:row;      /* force row */
+  justify-content:center;
+  align-items:flex-start;
+  gap:32px;
+  flex-wrap:wrap;
+}
+.sector{
+  flex:0 0 auto;           /* prevents 100% width stacking */
+  min-width:110px;
+  text-align:center;
+}
 
 /* --- Mobile stack --- */
 @media (max-width: 720px){
