@@ -308,6 +308,39 @@ img{max-width:100%;height:auto;display:block}
     min-width:0;
   }
 }
+/* Industries row */
+.industry-grid{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:32px;
+  flex-wrap:wrap;          /* wrap on medium screens */
+  margin-top:24px;
+  width:100%;
+}
+
+.industry{
+  flex:0 0 auto;           /* prevents full-width stacking */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  min-width:110px;
+  text-align:center;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 720px){
+  .industry-grid{
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    flex-wrap:nowrap;
+  }
+  .industry{
+    min-width:0;
+  }
+}
 
 /* HOW IT WORKS steps */
 .steps{
