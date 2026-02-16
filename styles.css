@@ -567,33 +567,41 @@ img{max-width:100%;height:auto;display:block}
 .eco__card{
   text-align:center;
 }
-.eco__bullets{
-  display:inline-block;
-  text-align:left;     /* keeps bullet text readable */
-}
 
+/* Bullets: shrink-wrap and center as a group, but left-align text */
 .eco__bullets{
-  list-style:none;
-  margin:10px 0 0;
-  padding:0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* centers the whole bullet group inside the card */
+  margin: 10px auto 0;
+
+  /* prevents full-width ul behavior from global CSS */
+  width: max-content;
+  max-width: 100%;
+
+  list-style: none;
+  padding: 0;
+  text-align: left;
 }
 
 .eco__bullets li{
-  position:relative;
-  padding-left:14px;   /* space for dot */
-  margin:6px 0;
-  line-height:1.45;
+  position: relative;
+  padding-left: 14px;
+  margin: 0;              /* use gap instead of margins */
+  line-height: 1.45;
 }
 
 .eco__bullets li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:.62em;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:rgba(3,81,87,.55); /* subtle teal */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(3,81,87,.55);
 }
 
 /* Connector lines from each card down to TORBU */
