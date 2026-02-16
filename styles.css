@@ -497,9 +497,20 @@ img{max-width:100%;height:auto;display:block}
   opacity: .78;
   max-width: 82ch;
 }
+
+/* Hover/focus highlight (simple “dynamic”) */
+.integrate__card:hover,
+.integrate__card:focus-visible{
+  transform: translateY(-1px);
+  border-color: rgba(3,81,87,.35);
+  background: rgba(214,252,73,.10);
+  box-shadow: 0 10px 30px rgba(3,81,87,.10);
+}
+
 /* ---------- Ecosystem Model diagram ---------- */
 
 .eco{ margin-top:26px; }
+
 .eco__divider{
   height:1px;
   background:var(--line);
@@ -508,13 +519,6 @@ img{max-width:100%;height:auto;display:block}
 }
 
 .eco__head{ margin-bottom:14px; }
-.eco__title{ margin:0 0 6px; }
-.eco__subhead{
-  margin:0;
-  color:rgba(31,35,34,.78);
-  font-size:15px;
-  line-height:1.5;
-}
 
 .eco__title{
   margin:0 0 6px;
@@ -525,8 +529,11 @@ img{max-width:100%;height:auto;display:block}
   color:rgba(3,81,87,.92);
 }
 
-@media (max-width: 900px){
-  .eco__card::after{ display:none; }
+.eco__subhead{
+  margin:0;
+  color:rgba(31,35,34,.78);
+  font-size:15px;
+  line-height:1.5;
 }
 
 /* 3-column cards */
@@ -547,6 +554,7 @@ img{max-width:100%;height:auto;display:block}
   padding:16px 16px 14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
   backdrop-filter:saturate(120%) blur(8px);
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
 .eco__kicker{
@@ -558,12 +566,12 @@ img{max-width:100%;height:auto;display:block}
 
 .eco__bullets{
   list-style: disc;
-  padding-left: 18px;   /* tighter */
-  margin: 8px 0 0;
+  padding-left:18px;
+  margin:8px 0 0;
 }
 
 .eco__bullets li{
-  margin: 6px 0;        /* slightly tighter vertical rhythm */
+  margin:6px 0;
 }
 
 /* Connector lines from each card down to TORBU */
@@ -585,14 +593,13 @@ img{max-width:100%;height:auto;display:block}
   border:1px solid var(--line);
   border-radius:20px;
   padding:16px 18px 14px;
-  background:rgba(214,252,73,.14); /* uses your lime theme subtly */
+  background:rgba(214,252,73,.14);
   box-shadow:0 12px 34px rgba(0,0,0,.08);
   max-width:520px;
   margin:0 auto;
   text-align:center;
 }
 
-/* small “TORBU” badge */
 .eco__badge{
   display:inline-block;
   padding:6px 10px;
@@ -611,6 +618,7 @@ img{max-width:100%;height:auto;display:block}
   color:var(--midnight);
   letter-spacing:.01em;
 }
+
 .eco__centerText{
   margin-top:8px;
   color:rgba(31,35,34,.82);
@@ -642,13 +650,11 @@ img{max-width:100%;height:auto;display:block}
   }
 }
 
-/* Hover/focus highlight (simple “dynamic”) */
-.integrate__card:hover,
-.integrate__card:focus-visible{
+/* Subtle hover (no color shift) */
+.eco__card:hover,
+.eco__card:focus-visible{
   transform: translateY(-1px);
-  border-color: rgba(3,81,87,.35);
-  background: rgba(214,252,73,.10);
-  box-shadow: 0 10px 30px rgba(3,81,87,.10);
+  box-shadow: 0 8px 20px rgba(3,81,87,.06);
 }
 
 /* Mobile alignment (match your CTA section behavior) */
