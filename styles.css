@@ -507,18 +507,18 @@ img{max-width:100%;height:auto;display:block}
   box-shadow: 0 10px 30px rgba(3,81,87,.10);
 }
 
-/* ---------- Ecosystem Model diagram ---------- */
+/* ---------- Ecosystem Model (ultra-clean institutional) ---------- */
 
 .eco{ margin-top:26px; }
 
 .eco__divider{
   height:1px;
   background:var(--line);
-  margin:18px 0 20px;
+  margin:18px 0 22px;
   opacity:.9;
 }
 
-.eco__head{ margin-bottom:14px; }
+.eco__head{ text-align:center; margin-bottom:14px; }
 
 .eco__title{
   margin:0 0 6px;
@@ -538,96 +538,45 @@ img{max-width:100%;height:auto;display:block}
 
 /* 3-column cards */
 .eco__grid{
-  position:relative;
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:16px;
   margin-top:14px;
-  padding-bottom:26px; /* room for connectors */
 }
 
 .eco__card{
-  position:relative;
   border:1px solid var(--line);
   border-radius:18px;
   background:rgba(255,255,255,.78);
   padding:16px 16px 14px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
   backdrop-filter:saturate(120%) blur(8px);
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 .eco__kicker{
   font-weight:650;
   letter-spacing:.01em;
   color:var(--midnight);
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
-.eco__card{
-  text-align:center;
-}
-
-/* Bullets: shrink-wrap and center as a group, but left-align text */
-.eco__bullets{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  /* centers the whole bullet group inside the card */
-  margin: 10px auto 0;
-
-  /* prevents full-width ul behavior from global CSS */
-  width: max-content;
-  max-width: 100%;
-
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-.eco__bullets li{
-  position: relative;
-  padding-left: 14px;
-  margin: 0;              /* use gap instead of margins */
-  line-height: 1.45;
-}
-
-.eco__bullets li::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(3,81,87,.55);
-}
-
-/* Connector lines from each card down to TORBU */
-.eco__card::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:100%;
-  width:1px;
-  height:22px;
-  background:var(--line);
-  transform:translateX(-50%);
-  opacity:.95;
+.eco__items{
+  color:rgba(31,35,34,.82);
+  font-size:14px;
+  line-height:1.55;
 }
 
 /* Center TORBU block */
 .eco__center{
-  position:relative;
+  margin:18px auto 0;
+  max-width:560px;
+  text-align:center;
   border:1px solid var(--line);
   border-radius:20px;
   padding:16px 18px 14px;
-  background:rgba(214,252,73,.14);
+  background:rgba(214,252,73,.12);
   box-shadow:0 12px 34px rgba(0,0,0,.08);
-  max-width:520px;
-  margin:0 auto;
-  text-align:center;
 }
 
 .eco__badge{
@@ -663,14 +612,19 @@ img{max-width:100%;height:auto;display:block}
   color:rgba(31,35,34,.76);
 }
 
+/* Subtle hover (no green shift, no gimmick) */
+.eco__card:hover,
+.eco__card:focus-visible{
+  transform: translateY(-1px);
+  border-color: rgba(3,81,87,.22);
+  box-shadow: 0 12px 34px rgba(3,81,87,.08);
+}
+
 /* Mobile */
 @media (max-width: 900px){
-
-  .eco__grid{
-    grid-template-columns:1fr;
-    gap:14px;
-    padding-bottom:10px;
-  }
+  .eco__grid{ grid-template-columns:1fr; gap:14px; }
+  .eco__center{ max-width:100%; }
+}
 
   /* Hide connector lines on mobile */
   .eco__card::after{
@@ -681,13 +635,6 @@ img{max-width:100%;height:auto;display:block}
     max-width:100%;
     margin-top:10px;
   }
-}
-
-/* Subtle hover (no color shift) */
-.eco__card:hover,
-.eco__card:focus-visible{
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(3,81,87,.06);
 }
 
 /* Mobile alignment (match your CTA section behavior) */
