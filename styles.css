@@ -39,7 +39,7 @@ img{max-width:100%;height:auto;display:block}
 
 .skip-link{
   position:absolute;
-  left:-999px;
+  left:-9999px;
   top:auto;
   width:1px;
   height:1px;
@@ -112,44 +112,84 @@ img{max-width:100%;height:auto;display:block}
 .btn--full{width:100%}
 
 /* Header layout: left logo | centered menu | right hamburger */
+/* ---------- Header / Nav (single source of truth) ---------- */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(242,237,232,.86);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+
 .header__inner{
+  height:74px;                      /* controls header height */
   display:grid;
   grid-template-columns:auto 1fr auto;
   align-items:center;
   gap:18px;
 }
 
-/* Center column nav */
+/* Avoids second CTA elsewhere */
+.header__cta{ 
+  display:none !important; 
+}
+
+/* Logo sizing (this is why TORBU looked huge) */
+.brand{
+  display:flex;
+  align-items:center;
+}
+.brand__logo{
+  height:34px;                      /* <-- tune: 30–38px */
+  width:auto;
+}
+
+/* Centered nav */
 .nav{
   display:flex;
   justify-content:center;
 }
-
-/* Desktop links */
 .nav__links--desktop{
   display:flex;
-  gap:22px;
   align-items:center;
   justify-content:center;
+  gap:22px;
   white-space:nowrap;
 }
+.nav__link{
+  font-size:15px;
+  color:rgba(31,35,34,.82);
+}
+.nav__link:hover{ opacity:.9; }
 
-/* Remove any header CTA everywhere */
-.nav__cta,
-.header__cta{
-  display:none !important;
+/* Right-side actions */
+.nav__actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:flex-end;
 }
 
-/* Hamburger toggle (single source of truth) */
+/* Green contact CTA (desktop) — narrower, matches header height */
+.nav__cta.btn--primary{
+  height:40px;
+  padding:0 14px;
+  border-radius:14px;
+  font-size:14px;
+  line-height:1;
+}
+
+/* Hamburger (mobile only) */
 .nav__toggle{
-  display:none; /* shown on mobile via media query */
+  display:none;
   width:44px;
   height:44px;
   border:1px solid var(--line);
   border-radius:14px;
   background:rgba(255,255,255,.75);
   cursor:pointer;
-
   padding:0;
   flex-direction:column;
   justify-content:center;
@@ -164,13 +204,18 @@ img{max-width:100%;height:auto;display:block}
   border-radius:2px;
 }
 
-/* Mobile */
+/* Mobile behavior:
+   - hide centered desktop links
+   - hide green CTA
+   - show hamburger
+*/
 @media (max-width: 900px){
   .nav__links--desktop{ display:none; }
+  .nav__cta{ display:none; }
   .nav__toggle{ display:inline-flex; }
 }
 
-/* Mobile drawer */
+/* Drawer */
 .drawer{
   border-top:1px solid var(--line);
   background:rgba(242,237,232,.96);
@@ -182,15 +227,25 @@ img{max-width:100%;height:auto;display:block}
   padding:14px 24px 18px;
   gap:8px;
 }
-.drawer__nav a{
+.drawer__link{
   padding:10px 12px;
   border-radius:14px;
   border:1px solid transparent;
   color:rgba(31,35,34,.88);
 }
-.drawer__nav a:hover{
+.drawer__link:hover{
   border-color:var(--line);
   background:rgba(255,255,255,.55);
+}
+
+/* Focus-visible styles for accessibility */
+.nav__link:focus-visible,
+.drawer__link:focus-visible,
+.btn:focus-visible,
+.nav__toggle:focus-visible{
+  outline:3px solid rgba(214,252,73,.35);
+  outline-offset:2px;
+  border-radius:14px;
 }
 
 /* HERO — keep gradient colors/percentages AS-IS */
