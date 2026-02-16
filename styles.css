@@ -263,37 +263,37 @@ img{max-width:100%;height:auto;display:block}
   gap:22px;
   align-items:start;
 }
-/* --- Sectors row --- */
+/* --- Sectors row (single source of truth) --- */
 .sectors{
   display:flex;
+  flex-direction:row;
   justify-content:center;
-  gap:32px;
-  flex-wrap:wrap;        /* allows wrap on medium screens */
   align-items:flex-start;
+  gap:32px;
+  flex-wrap:wrap;          /* wraps on mid-size screens */
   margin-top:24px;
+  width:100%;
 }
 
 .sector{
+  flex:0 0 auto;           /* prevents full-width stacking */
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:10px;
-  min-width:110px;       /* prevents collapsing */
-  text-align:center;
-}
-/* Sectors — force horizontal on desktop */
-.sectors{
-  display:flex;
-  flex-direction:row;      /* force row */
-  justify-content:center;
-  align-items:flex-start;
-  gap:32px;
-  flex-wrap:wrap;
-}
-.sector{
-  flex:0 0 auto;           /* prevents 100% width stacking */
   min-width:110px;
   text-align:center;
+}
+
+/* FORCE desktop to stay horizontal even if inside a narrower column */
+@media (min-width: 901px){
+  .sectors{
+    flex-wrap:nowrap;      /* prevents “one per line” in narrow columns */
+    gap:28px;
+  }
+  .sector{
+    min-width:0;           /* lets them shrink a bit instead of stacking */
+  }
 }
 
 /* --- Mobile stack --- */
