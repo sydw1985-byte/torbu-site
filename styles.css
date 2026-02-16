@@ -516,6 +516,17 @@ img{max-width:100%;height:auto;display:block}
   line-height:1.5;
 }
 
+.eco__title{
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(3,81,87,.92);
+}
+
+@media (max-width: 900px){
+  .eco__card::after{ display:none; }
+}
+
 /* 3-column cards */
 .eco__grid{
   position:relative;
