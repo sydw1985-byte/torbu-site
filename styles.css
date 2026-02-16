@@ -635,18 +635,21 @@ img{max-width:100%;height:auto;display:block}
 
 /* Mobile */
 @media (max-width: 900px){
+
   .eco__grid{
     grid-template-columns:1fr;
     gap:14px;
     padding-bottom:10px;
   }
+
+  /* Hide connector lines on mobile */
   .eco__card::after{
-    height:12px;
-    opacity:.65;
+    display:none;
   }
+
   .eco__center{
     max-width:100%;
-    margin-top:6px;
+    margin-top:10px;
   }
 }
 
