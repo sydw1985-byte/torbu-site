@@ -435,6 +435,17 @@ img{max-width:100%;height:auto;display:block}
 
 }
 
+/* Show hamburger on mobile */
+@media (max-width: 900px){
+  .nav__links{
+    display: none;
+  }
+
+  .nav__toggle{
+    display: block;
+  }
+}
+
 /* Integrations (dynamic, minimal) */
 #integrations .section__head {
   margin-bottom: 36px;
