@@ -360,120 +360,6 @@ img{max-width:100%;height:auto;display:block}
   }
 }
 
-/* Industries row */
-.industry-grid{
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  gap:32px;
-  flex-wrap:wrap;          /* wrap on medium screens */
-  margin-top:24px;
-  width:100%;
-}
-
-.industry{
-  flex:0 0 auto;           /* prevents full-width stacking */
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  min-width:110px;
-  text-align:center;
-}
-
-/* Mobile: stack vertically */
-@media (max-width: 720px){
-  .industry-grid{
-    flex-direction:column;
-    align-items:center;
-    gap:20px;
-    flex-wrap:nowrap;
-  }
-  .industry{
-    min-width:0;
-  }
-}
-
-/* ---------- Industry inline expansions ---------- */
-
-.industry{
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:rgba(255,255,255,.78);
-  padding:14px;
-}
-
-/* Clickable header row */
-.industry__trigger{
-  width:100%;
-  border:0;
-  background:transparent;
-  padding:6px 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  cursor:pointer;
-}
-
-.industry__chev{
-  margin-left:6px;
-  font-size:16px;
-  opacity:.6;
-  transition:transform .18s ease, opacity .18s ease;
-}
-
-.industry__trigger[aria-expanded="true"] .industry__chev{
-  transform:rotate(45deg);
-  opacity:.9;
-}
-
-/* Expanded panel */
-.industry__panel{
-  margin-top:12px;
-  padding-top:12px;
-  border-top:1px solid var(--line);
-  text-align:left;
-}
-
-.industry__lead{
-  margin:0 0 8px;
-  font-size:14px;
-  color:rgba(31,35,34,.78);
-}
-
-.industry__close{
-  margin:0;
-  font-size:14px;
-  color:rgba(31,35,34,.84);
-  line-height:1.55;
-}
-
-/* Expanded narrative panel (constrained + centered) */
-.industry__panel{
-  width:100%;
-  max-width: var(--max);
-  margin: 14px auto 0;
-  padding: 0 24px;                 /* matches .container padding */
-}
-
-.industry__panelInner{
-  background: rgba(255,255,255,.70);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 16px 18px;
-  text-align: left;
-  color: rgba(31,35,34,.84);
-  line-height: 1.6;
-  overflow-wrap: anywhere;         /* prevents long strings from forcing width */
-}
-
-@media (max-width: 720px){
-  .industry__panel{
-    padding: 0 16px;
-  }
-}
-
 /* ========== Industries Accordion (stacked, centered) ========== */
 .industry-accordion{
   max-width: 520px;
@@ -482,7 +368,12 @@ img{max-width:100%;height:auto;display:block}
   gap: 14px;
 }
 
-/* Each row */
+.industryItem{
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+/* Button row */
 .industryTrigger{
   width: 100%;
   display: grid;
@@ -499,7 +390,6 @@ img{max-width:100%;height:auto;display:block}
   color: rgba(31,35,34,.92);
 }
 
-/* Hover / focus – very subtle, institutional */
 .industryTrigger:hover{
   background: rgba(255,255,255,.35);
 }
@@ -527,13 +417,14 @@ img{max-width:100%;height:auto;display:block}
   color: rgba(31,35,34,.55);
 }
 
-/* Panel (inline expansion) */
+/* Panel */
 .industryPanel{
-  padding: 0 12px 0 12px;
+  padding: 0 12px;
 }
+
 .industryPanelInner{
   margin-top: 10px;
-  padding: 14px 14px;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: rgba(255,255,255,.70);
@@ -542,7 +433,6 @@ img{max-width:100%;height:auto;display:block}
   line-height: 1.55;
 }
 
-/* Tighten paragraph inside panel */
 .industryPanelInner p{
   margin: 0;
 }
