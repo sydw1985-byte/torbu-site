@@ -16,42 +16,58 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="header">
-      <div class="container header__inner">
-        <a class="brand" href="./index.html#main" aria-label="TORBU home">
-          <img class="brand__logo" src="assets/torbu-logo-horizontal-green.png" alt="TORBU" />
-        </a>
-    
-        <nav class="nav" aria-label="Primary navigation">
-          <div class="nav__links nav__links--desktop">
-            <a class="nav__link" href="./index.html#focus">Focus</a>
-            <a class="nav__link" href="./index.html#how">How it works</a>
-            <a class="nav__link" href="./index.html#architecture">Architecture</a>
-            <a class="nav__link" href="./index.html#why">Why now</a>
-          </div>
-        </nav>
-    
-        <div class="nav__actions">
-          <a class="btn btn--primary" href="./index.html#contact">Contact</a>
-    
-          <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" type="button">
-            <span></span><span></span><span></span>
-          </button>
+    <div class="container header__inner">
+      <a class="brand" href="./index.html#main" aria-label="TORBU home">
+        <img class="brand__logo" src="assets/torbu-logo-horizontal-green.png" alt="TORBU" />
+      </a>
+
+      <!-- Centered desktop nav links (NO Contact link here) -->
+      <nav class="nav" aria-label="Primary navigation">
+        <div class="nav__links nav__links--desktop">
+          <a class="nav__link" href="./index.html#focus">Focus</a>
+          <a class="nav__link" href="./index.html#how">How it works</a>
+          <a class="nav__link" href="./index.html#architecture">Architecture</a>
+          <a class="nav__link" href="./index.html#why">Why now</a>
         </div>
+      </nav>
+
+      <!-- Right side actions -->
+      <div class="nav__actions">
+        <!-- Desktop-only green CTA -->
+        <a class="btn btn--primary nav__cta" href="./index.html#contact">Contact</a>
+
+        <!-- Mobile-only hamburger -->
+        <button
+          class="nav__toggle"
+          id="navToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="drawer"
+          aria-label="Open menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    
-      <div class="drawer" id="drawer" hidden>
-        <div class="drawer__inner">
-          <a href="./index.html#focus">Focus</a>
-          <a href="./index.html#how">How it works</a>
-          <a href="./index.html#architecture">Architecture</a>
-          <a href="./index.html#why">Why now</a>
-          <a href="./index.html#contact">Contact</a>
-          <a href="./privacy.html">Privacy Policy</a>
-          <a href="./terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </header>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" hidden>
+      <nav class="drawer__nav" aria-label="Mobile navigation">
+        <a class="drawer__link" href="./index.html#focus">Focus</a>
+        <a class="drawer__link" href="./index.html#how">How it works</a>
+        <a class="drawer__link" href="./index.html#architecture">Architecture</a>
+        <a class="drawer__link" href="./index.html#why">Why now</a>
+        <a class="drawer__link" href="./index.html#contact">Contact</a>
+
+        <!-- Legal -->
+        <a class="drawer__link" href="./privacy.html">Privacy Policy</a>
+        <a class="drawer__link" href="./terms.html">Terms of Service</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- MAIN -->
   <main id="main" class="legal">
