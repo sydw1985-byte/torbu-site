@@ -431,9 +431,12 @@
 <!-- Footer -->
 <footer class="footer">
   <div class="container">
+
     <div class="footer__top">
       <div class="footer__left">
-        <div class="footer__brand">TORBU<span class="reg reg--brand">®</span></div>
+        <div class="footer__brand">
+          TORBU<span class="reg reg--brand" aria-hidden="true">®</span>
+        </div>
         <div class="footer__tag">Operating Intelligence for Regulated Systems.</div>
       </div>
 
@@ -445,13 +448,20 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
+
+    <div class="footer__bottom">
       <div class="footer__legal">
-        © <span id="year"></span> TORBU, LLC. All rights reserved. 
-        TORBU<span class="reg reg--legal">®</span> is a registered trademark of TORBU, LLC.
+        © <span id="year"></span> TORBU, LLC. All rights reserved.
+        TORBU<span class="reg reg--legal" aria-hidden="true">®</span> is a registered trademark of TORBU, LLC.
       </div>
     </div>
+
   </div>
 </footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
   <!-- Auto-update year -->
   <script>
