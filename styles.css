@@ -845,11 +845,6 @@ textarea:focus{
   text-transform:uppercase;
   color:rgba(3,81,87,.85);
 }
-.footer__brand sup{
-  font-size:10px;           /* fixed size, not em */
-  vertical-align:0.35em;
-  margin-left:3px;
-}
 
 /* Tagline */
 .footer__tag{
@@ -888,11 +883,6 @@ textarea:focus{
   color:rgba(31,35,34,.50);
   line-height:1.5;
 }
-.footer__legal sup{
-  font-size:11px;           /* slightly larger so it reads */
-  vertical-align:0.25em;
-  margin-left:2px;
-}
 
 /* Mobile: stack left + nav under */
 @media (max-width: 720px){
@@ -917,13 +907,13 @@ textarea:focus{
 
 /* Slightly larger in the brand lockup */
 .reg--brand{
-  font-size:12px;       /* bump this to 13–14 if you want */
+  font-size:14px;       /* bump this to 13–14 if you want */
   opacity:.85;
 }
 
 /* Readable but subtle in the legal line */
 .reg--legal{
-  font-size:12px;       /* bump to 13 if desired */
+  font-size:13px;       /* bump to 13 if desired */
   opacity:.65;
 }
 
