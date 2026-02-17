@@ -839,12 +839,13 @@ textarea:focus{
 
 /* Brand */
 .footer__brand{
+  font-size:14px;
   font-weight:600;
-  font-size:13px;
   letter-spacing:.18em;
   text-transform:uppercase;
   color:rgba(3,81,87,.85);
 }
+
 .footer__brand sup{
   font-size:0.7em;      /* was ~0.6em visually */
   vertical-align:super;
