@@ -408,7 +408,13 @@ img{max-width:100%;height:auto;display:block}
 .industryLabel{
   text-align: left;
   font-weight: 500;
-  font-size: 0.8rem;   
+  font-size: 1.125rem; /* 16px */
+}
+
+@media (max-width: 720px){
+  .industryLabel{
+    font-size: 0.875rem;  /* 14px */
+  }
 }
 
 .industryPlus{
