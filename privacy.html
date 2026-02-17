@@ -187,35 +187,45 @@
   </main>
 
   <!-- FOOTER (reuse your footer) -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__left">
-          <div class="footer__brand">TORBU<span class="reg reg--brand">®</span></div>
-          <div class="footer__tag">Operating Intelligence for Regulated Systems.</div>
-        </div>
+   <footer class="footer">
+  <div class="container">
 
-        <nav class="footer__nav" aria-label="Footer navigation">
-          <a href="./index.html#focus">Focus</a>
-          <a href="./index.html#how">How it works</a>
-          <a href="./index.html#architecture">Architecture</a>
-          <a href="./index.html#why">Why now</a>
-          <a href="./index.html#contact">Contact</a>
-        </nav>
+    <div class="footer__top">
+      <div class="footer__left">
+        <div class="footer__brand">
+          TORBU<span class="reg reg--brand" aria-hidden="true">®</span>
+        </div>
+        <div class="footer__tag">Operating Intelligence for Regulated Systems.</div>
       </div>
 
-      <div class="footer__bottom">
-        <div class="footer__legal">
-          © <span id="year"></span> TORBU, LLC. All rights reserved.
-          TORBU<span class="reg reg--legal">®</span> is a registered trademark of TORBU, LLC.
-        </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="./index.html#focus">Focus</a>
+        <a href="./index.html#how">How it works</a>
+        <a href="./index.html#architecture">Architecture</a>
+        <a href="./index.html#why">Why now</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        © <span id="year"></span> TORBU, LLC. All rights reserved.
+        TORBU<span class="reg reg--legal" aria-hidden="true">®</span> is a registered trademark of
+        <span class="nowrap">TORBU, LLC.</span>
+      </div>
+
+      <div class="footer__legal-links" aria-label="Legal links">
+        <a href="./privacy.html">Privacy Policy</a>
+        <span class="footer__sep" aria-hidden="true">•</span>
+        <a href="./terms.html">Terms of Service</a>
       </div>
     </div>
-  </footer>
 
-  <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
 
     // Effective/Updated (set both to today by default; edit if you want)
     const today = new Date();
