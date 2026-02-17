@@ -902,7 +902,7 @@ textarea:focus{
   display:inline-block;
   margin-left:3px;
   line-height:1;
-  transform: translateY(-0.45em) scale(1.25); /* <-- makes it LOOK bigger */
+  transform: translateY(-0.25em) scale(0.95); /* <-- makes it LOOK bigger */
   transform-origin: left bottom;
   font-family: Arial, system-ui, sans-serif;  /* <-- bigger ® glyph than Poppins */
 }
@@ -914,7 +914,7 @@ textarea:focus{
 
 .reg--legal{
   opacity:.65;
-  transform: translateY(-0.35em) scale(1.15); /* slightly calmer in legal line */
+  transform: translateY(-0.20em) scale(0.90); /* slightly calmer in legal line */
 }
 
 /* ---------- Responsive (single block; no duplicates) ---------- */
