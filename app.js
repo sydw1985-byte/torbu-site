@@ -21,6 +21,19 @@ const form = document.getElementById("contactForm");
   });
 })();
 
+/* Industry inline expansions */
+document.querySelectorAll("[data-industry]").forEach((card) => {
+  const btn = card.querySelector(".industry__trigger");
+  const panel = card.querySelector(".industry__panel");
+  if (!btn || !panel) return;
+
+  btn.addEventListener("click", () => {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!expanded));
+    panel.hidden = expanded;
+  });
+});
+
 /* Contact form submit (Worker + Turnstile) */
 if (form) {
   form.addEventListener("submit", async (e) => {
