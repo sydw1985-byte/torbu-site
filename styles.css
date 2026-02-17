@@ -845,11 +845,10 @@ textarea:focus{
   text-transform:uppercase;
   color:rgba(3,81,87,.85);
 }
-
 .footer__brand sup{
-  font-size:10px;
+  font-size:0.7em;      /* was ~0.6em visually */
   vertical-align:super;
-  margin-left:1px;
+  margin-left:2px;
 }
 
 /* Tagline */
