@@ -449,6 +449,31 @@ img{max-width:100%;height:auto;display:block}
   line-height:1.55;
 }
 
+/* Expanded narrative panel (constrained + centered) */
+.industry__panel{
+  width:100%;
+  max-width: var(--max);
+  margin: 14px auto 0;
+  padding: 0 24px;                 /* matches .container padding */
+}
+
+.industry__panelInner{
+  background: rgba(255,255,255,.70);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px 18px;
+  text-align: left;
+  color: rgba(31,35,34,.84);
+  line-height: 1.6;
+  overflow-wrap: anywhere;         /* prevents long strings from forcing width */
+}
+
+@media (max-width: 720px){
+  .industry__panel{
+    padding: 0 16px;
+  }
+}
+
 /* HOW IT WORKS steps */
 .steps{
   display:grid;
