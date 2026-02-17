@@ -235,8 +235,8 @@
     const fmt = (d) =>
       d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
 
-    setText("privacyEffective", fmt(today));
-    setText("privacyUpdated", fmt(today));
+    setText("termsEffective", fmt(today));
+    setText("termsUpdated", fmt(today));
 
     // Smooth anchor scrolling (only for same-page anchors)
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
