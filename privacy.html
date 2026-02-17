@@ -239,18 +239,28 @@
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  (function () {
+    const setText = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    // Year
+    setText("year", new Date().getFullYear());
 
     // Effective/Updated (set both to today by default; edit if you want)
     const today = new Date();
-    const fmt = (d) => d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
-    document.getElementById("privacyEffective").textContent = fmt(today);
-    document.getElementById("privacyUpdated").textContent = fmt(today);
+    const fmt = (d) =>
+      d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
 
-    // Optional: smooth anchor scrolling without breaking anything
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
+    setText("privacyEffective", fmt(today));
+    setText("privacyUpdated", fmt(today));
+
+    // Smooth anchor scrolling (only for same-page anchors)
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
         const id = a.getAttribute("href");
+        if (!id || id === "#") return;
         const el = document.querySelector(id);
         if (!el) return;
         e.preventDefault();
@@ -259,12 +269,10 @@
       });
     });
 
-    // If you use a mobile drawer on this page, keep your existing toggle script.
-    (function(){
-      const btn = document.getElementById("navToggle");
-      const drawer = document.getElementById("drawer");
-      if (!btn || !drawer) return;
-
+    // Mobile drawer toggle
+    const btn = document.getElementById("navToggle");
+    const drawer = document.getElementById("drawer");
+    if (btn && drawer) {
       btn.addEventListener("click", () => {
         const isOpen = btn.getAttribute("aria-expanded") === "true";
         btn.setAttribute("aria-expanded", String(!isOpen));
@@ -277,7 +285,8 @@
           btn.setAttribute("aria-expanded", "false");
         }
       });
-    })();
-  </script>
+    }
+  })();
+</script>
 </body>
 </html>
