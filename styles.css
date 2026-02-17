@@ -825,6 +825,7 @@ textarea:focus{
   border-top:1px solid var(--line);
   padding-top:36px;
 }
+
 .footer__brand{
   font-weight:600;
   font-size:13px;
@@ -832,12 +833,28 @@ textarea:focus{
   text-transform:uppercase;
   color:rgba(3,81,87,.85);
 }
+
+.footer__brand sup{
+  font-size:9px;            /* smaller ® */
+  vertical-align:super;
+  margin-left:2px;
+  opacity:.8;
+}
+
 .footer__tag{
   font-size:12px;
   letter-spacing:.02em;
   color:rgba(31,35,34,.65);
   margin-top:8px;
 }
+
+/* Makes legal text feel institutional and subtle */
+.footer__legal{
+  margin-top:12px;
+  font-size:12px;           /* smaller */
+  color:rgba(31,35,34,.50); /* lighter */
+}
+
 .footer__right{
   display:flex;
   gap:24px;
@@ -850,18 +867,6 @@ textarea:focus{
   color:rgba(31,35,34,.72);
 }
 .footer__right a:hover{opacity:.85}
-
-/* Makes legal text feel institutional and subtle */
-.footer__legal{
-  margin-top:14px;
-  font-size:13px;
-  color:rgba(31,35,34,.65);
-}
-
-.footer__brand sup{
-  font-size:12px;
-  vertical-align:super;
-}
 
 /* ---------- Responsive (single block; no duplicates) ---------- */
 @media (max-width: 900px){
