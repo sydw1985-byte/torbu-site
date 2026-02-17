@@ -847,7 +847,7 @@ textarea:focus{
 }
 
 .footer__brand sup{
-  font-size:0.7em;      /* was ~0.6em visually */
+  font-size:0.85em;      /* was ~0.6em visually */
   vertical-align:super;
   margin-left:2px;
 }
