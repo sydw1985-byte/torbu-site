@@ -394,6 +394,61 @@ img{max-width:100%;height:auto;display:block}
   }
 }
 
+/* ---------- Industry inline expansions ---------- */
+
+.industry{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.78);
+  padding:14px;
+}
+
+/* Clickable header row */
+.industry__trigger{
+  width:100%;
+  border:0;
+  background:transparent;
+  padding:6px 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  cursor:pointer;
+}
+
+.industry__chev{
+  margin-left:6px;
+  font-size:16px;
+  opacity:.6;
+  transition:transform .18s ease, opacity .18s ease;
+}
+
+.industry__trigger[aria-expanded="true"] .industry__chev{
+  transform:rotate(45deg);
+  opacity:.9;
+}
+
+/* Expanded panel */
+.industry__panel{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  text-align:left;
+}
+
+.industry__lead{
+  margin:0 0 8px;
+  font-size:14px;
+  color:rgba(31,35,34,.78);
+}
+
+.industry__close{
+  margin:0;
+  font-size:14px;
+  color:rgba(31,35,34,.84);
+  line-height:1.55;
+}
+
 /* HOW IT WORKS steps */
 .steps{
   display:grid;
