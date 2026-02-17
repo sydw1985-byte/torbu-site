@@ -902,7 +902,7 @@ textarea:focus{
   display:inline-block;
   margin-left:3px;
   line-height:1;
-  transform: translateY(-0.25em) scale(0.95); /* <-- makes it LOOK bigger */
+  transform: translateY(-0.20em) scale(0.95); /* <-- makes it LOOK bigger */
   transform-origin: left bottom;
   font-family: Arial, system-ui, sans-serif;  /* <-- bigger ® glyph than Poppins */
 }
