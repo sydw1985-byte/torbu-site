@@ -34,6 +34,45 @@ document.querySelectorAll("[data-industry]").forEach((card) => {
   });
 });
 
+/* Restrict to one open at a time */
+<script>
+  (function(){
+    const triggers = document.querySelectorAll(".industry__trigger");
+
+    function closeAll(exceptBtn){
+      triggers.forEach(btn => {
+        if (btn === exceptBtn) return;
+        btn.setAttribute("aria-expanded", "false");
+        const panelId = btn.getAttribute("aria-controls");
+        const panel = document.getElementById(panelId);
+        if (panel) panel.hidden = true;
+      });
+    }
+
+    triggers.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        const panelId = btn.getAttribute("aria-controls");
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+
+        // close everything else first
+        closeAll(btn);
+
+        // toggle this one
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        panel.hidden = isOpen;
+
+        // optional: scroll to opened panel for nicer UX
+        if (!isOpen) {
+          panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      });
+    });
+  })();
+</script>
+
+
 /* Contact form submit (Worker + Turnstile) */
 if (form) {
   form.addEventListener("submit", async (e) => {
