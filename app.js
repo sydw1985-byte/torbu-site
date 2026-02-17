@@ -2,13 +2,13 @@ const form = document.getElementById("contactForm");
 
 /* Mobile drawer toggle */
 (() => {
-  const btn = document.getElementById("navToggle");
+  const navBtn = document.getElementById("navToggle");
   const drawer = document.getElementById("drawer");
-  if (!btn || !drawer) return;
+  if (!navBtn || !drawer) return;
 
-  btn.addEventListener("click", () => {
-    const isOpen = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!isOpen));
+  navBtn.addEventListener("click", () => {
+    const isOpen = navBtn.getAttribute("aria-expanded") === "true";
+    navBtn.setAttribute("aria-expanded", String(!isOpen));
     drawer.hidden = isOpen;
   });
 
@@ -16,62 +16,50 @@ const form = document.getElementById("contactForm");
   drawer.addEventListener("click", (e) => {
     if (e.target.closest("a")) {
       drawer.hidden = true;
-      btn.setAttribute("aria-expanded", "false");
+      navBtn.setAttribute("aria-expanded", "false");
     }
   });
 })();
 
-/* Industry inline expansions */
-document.querySelectorAll("[data-industry]").forEach((card) => {
-  const btn = card.querySelector(".industry__trigger");
-  const panel = card.querySelector(".industry__panel");
-  if (!btn || !panel) return;
+/* Industry accordion (one open at a time) */
+(() => {
+  const root = document.getElementById("industryAccordion");
+  if (!root) return;
 
-  btn.addEventListener("click", () => {
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!expanded));
-    panel.hidden = expanded;
-  });
-});
+  function closeAll(exceptBtn) {
+    const buttons = root.querySelectorAll('.industryTrigger[aria-expanded="true"]');
+    buttons.forEach((btn) => {
+      if (btn === exceptBtn) return;
 
-/* Restrict to one open at a time */
-<script>
-  (function(){
-    const triggers = document.querySelectorAll(".industry__trigger");
+      const panelId = btn.getAttribute("aria-controls");
+      const panel = panelId ? document.getElementById(panelId) : null;
 
-    function closeAll(exceptBtn){
-      triggers.forEach(btn => {
-        if (btn === exceptBtn) return;
-        btn.setAttribute("aria-expanded", "false");
-        const panelId = btn.getAttribute("aria-controls");
-        const panel = document.getElementById(panelId);
-        if (panel) panel.hidden = true;
-      });
-    }
-
-    triggers.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const isOpen = btn.getAttribute("aria-expanded") === "true";
-        const panelId = btn.getAttribute("aria-controls");
-        const panel = document.getElementById(panelId);
-        if (!panel) return;
-
-        // close everything else first
-        closeAll(btn);
-
-        // toggle this one
-        btn.setAttribute("aria-expanded", String(!isOpen));
-        panel.hidden = isOpen;
-
-        // optional: scroll to opened panel for nicer UX
-        if (!isOpen) {
-          panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
-      });
+      btn.setAttribute("aria-expanded", "false");
+      const plus = btn.querySelector(".industryPlus");
+      if (plus) plus.textContent = "+";
+      if (panel) panel.hidden = true;
     });
-  })();
-</script>
+  }
 
+  root.addEventListener("click", (e) => {
+    const btn = e.target.closest(".industryTrigger");
+    if (!btn || !root.contains(btn)) return;
+
+    const panelId = btn.getAttribute("aria-controls");
+    const panel = panelId ? document.getElementById(panelId) : null;
+    if (!panel) return;
+
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+    closeAll(btn);
+
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    panel.hidden = isOpen;
+
+    const plus = btn.querySelector(".industryPlus");
+    if (plus) plus.textContent = isOpen ? "+" : "×";
+  });
+})();
 
 /* Contact form submit (Worker + Turnstile) */
 if (form) {
@@ -92,9 +80,11 @@ if (form) {
       return;
     }
 
-    const btn = form.querySelector('button[type="submit"]');
-    if (btn) { btn.disabled = true; btn.classList.add("is-loading"); }
-
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add("is-loading");
+    }
 
     // Required fields
     const name = form.name.value.trim();
@@ -104,7 +94,10 @@ if (form) {
 
     if (!name || !org || !email || !message) {
       alert("Please complete name, organization, email, and message.");
-      if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("is-loading");
+      }
       return;
     }
 
@@ -131,10 +124,13 @@ if (form) {
       window.location.href = "./thank-you.html";
     } catch (err) {
       console.error(err);
-      alert(err && err.message ? err.message : "Could not send. Please try again.");
+      alert(err?.message || "Could not send. Please try again.");
     } finally {
       try { window.turnstile.reset(widget); } catch {}
-      if (btn) { btn.disabled = false; btn.classList.remove("is-loading"); }
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("is-loading");
+      }
     }
   });
 }
