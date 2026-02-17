@@ -118,116 +118,136 @@
     TORBU establishes the governance model for durable traceability.
   </p>
 </div>
-
-        <div class="industry-grid" aria-label="Industries">
-          <!-- Water -->
-          <div class="industry" data-industry>
-            <button class="industry__trigger" type="button" aria-expanded="false">
-              <div class="industry__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2C12 2 5 10 5 14a7 7 0 0014 0c0-4-7-12-7-12z"/>
-                </svg>
-              </div>
-              <div class="industry__label">Water</div>
-              <div class="industry__chev" aria-hidden="true">+</div>
-            </button>
-        
-            <div class="industry__panel" hidden>
-              <p class="industry__lead"><strong>Model scenario:</strong> compliance execution during system consolidation.</p>
-              <p class="industry__close">
-                A regional utility acquires multiple distressed systems with inconsistent certification tracking and fragmented reporting.
-                TORBU aligns standards across facilities and verifies execution checkpoints before regulatory exposure accumulates.
-              </p>
-            </div>
-          </div>
-        
-          <!-- Energy -->
-          <div class="industry" data-industry>
-            <button class="industry__trigger" type="button" aria-expanded="false">
-              <div class="industry__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
-              </div>
-              <div class="industry__label">Energy</div>
-              <div class="industry__chev" aria-hidden="true">+</div>
-            </button>
-        
-            <div class="industry__panel" hidden>
-              <p class="industry__lead"><strong>Model scenario:</strong> grid modernization under regulatory oversight.</p>
-              <p class="industry__close">
-                A utility deploys distributed assets while compliance and operational controls remain siloed.
-                TORBU synchronizes policy requirements, field execution, and performance validation into one coordinated operating layer.
-              </p>
-            </div>
-          </div>
-        
-          <!-- Transit -->
-          <div class="industry" data-industry>
-            <button class="industry__trigger" type="button" aria-expanded="false">
-              <div class="industry__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="3" width="16" height="14" rx="2"/>
-                  <line x1="8" y1="21" x2="8" y2="17"/>
-                  <line x1="16" y1="21" x2="16" y2="17"/>
-                </svg>
-              </div>
-              <div class="industry__label">Transit</div>
-              <div class="industry__chev" aria-hidden="true">+</div>
-            </button>
-        
-            <div class="industry__panel" hidden>
-              <p class="industry__lead"><strong>Model scenario:</strong> safety governance across multi-agency networks.</p>
-              <p class="industry__close">
-                Capital upgrades and workforce turnover strain inspection and reporting continuity.
-                TORBU ensures standards propagate consistently and verified maintenance results roll up to executive oversight.
-              </p>
-            </div>
-          </div>
-        
-          <!-- Public Safety -->
-          <div class="industry" data-industry>
-            <button class="industry__trigger" type="button" aria-expanded="false">
-              <div class="industry__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"/>
-                </svg>
-              </div>
-              <div class="industry__label">Public Safety</div>
-              <div class="industry__chev" aria-hidden="true">+</div>
-            </button>
-        
-            <div class="industry__panel" hidden>
-              <p class="industry__lead"><strong>Model scenario:</strong> policy alignment across decentralized jurisdictions.</p>
-              <p class="industry__close">
-                Agencies adopt new technologies faster than governance frameworks evolve.
-                TORBU codifies operational thresholds and maintains traceable execution across departments.
-              </p>
-            </div>
-          </div>
-        
-          <!-- Military -->
-          <div class="industry" data-industry>
-            <button class="industry__trigger" type="button" aria-expanded="false">
-              <div class="industry__icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 3v18"/>
-                  <path d="M6 4h10l-1.5 3L16 10H6"/>
-                </svg>
-              </div>
-              <div class="industry__label">Military</div>
-              <div class="industry__chev" aria-hidden="true">+</div>
-            </button>
-        
-            <div class="industry__panel" hidden>
-              <p class="industry__lead"><strong>Model scenario:</strong> distributed training and certification oversight.</p>
-              <p class="industry__close">
-                Units operate across installations with evolving readiness requirements and reporting mandates.
-                TORBU coordinates standards flow-down and validates performance signals without disrupting existing systems.
-              </p>
+    <!-- FOCUS > INDUSTRIES (Accordion) -->
+      <div class="industry-accordion" id="industryAccordion" role="list" aria-label="Regulated industries">
+        <!-- WATER -->
+        <div class="industryItem" role="listitem">
+          <button
+            class="industry__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="panel-water"
+            data-industry="water"
+          >
+            <span class="industry__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C12 2 5 10 5 14a7 7 0 0014 0c0-4-7-12-7-12z"/>
+              </svg>
+            </span>
+            <span class="industry__label">Water</span>
+            <span class="industry__chev" aria-hidden="true">+</span>
+          </button>
+      
+          <div class="industry__panel" id="panel-water" hidden>
+            <div class="industry__panelInner">
+              <p><strong>Water.</strong> A state program must standardize training, work orders, and compliance documentation across many small systems. TORBU propagates standards, verifies execution checkpoints, and rolls performance evidence up for oversight.</p>
             </div>
           </div>
         </div>
+      
+        <!-- ENERGY -->
+        <div class="industryItem" role="listitem">
+          <button
+            class="industry__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="panel-energy"
+            data-industry="energy"
+          >
+            <span class="industry__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </span>
+            <span class="industry__label">Energy</span>
+            <span class="industry__chev" aria-hidden="true">+</span>
+          </button>
+      
+          <div class="industry__panel" id="panel-energy" hidden>
+            <div class="industry__panelInner">
+              <p><strong>Energy.</strong> Grid work spans distributed crews, vendors, and control standards that change faster than field execution can keep up. TORBU aligns policy requirements to workflows and validates that critical steps are completed before risk compounds.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- TRANSIT -->
+        <div class="industryItem" role="listitem">
+          <button
+            class="industry__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="panel-transit"
+            data-industry="transit"
+          >
+            <span class="industry__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="3" width="16" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="8" y2="17"/>
+                <line x1="16" y1="21" x2="16" y2="17"/>
+              </svg>
+            </span>
+            <span class="industry__label">Transit</span>
+            <span class="industry__chev" aria-hidden="true">+</span>
+          </button>
+      
+          <div class="industry__panel" id="panel-transit" hidden>
+            <div class="industry__panelInner">
+              <p><strong>Transit.</strong> Safety and maintenance depend on repeatable inspections, training currency, and auditable handoffs across depots and contractors. TORBU coordinates roles and certification paths, then produces verified records that support regulators and incident review.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- PUBLIC SAFETY -->
+        <div class="industryItem" role="listitem">
+          <button
+            class="industry__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="panel-public-safety"
+            data-industry="public-safety"
+          >
+            <span class="industry__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"/>
+              </svg>
+            </span>
+            <span class="industry__label">Public Safety</span>
+            <span class="industry__chev" aria-hidden="true">+</span>
+          </button>
+      
+          <div class="industry__panel" id="panel-public-safety" hidden>
+            <div class="industry__panelInner">
+              <p><strong>Public Safety.</strong> Agencies must keep training, policy updates, and operational readiness synchronized across units while preserving chain-of-command accountability. TORBU ensures standards flow down to teams and evidence rolls up to leadership with traceable responsibility.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- MILITARY -->
+        <div class="industryItem" role="listitem">
+          <button
+            class="industry__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="panel-military"
+            data-industry="military"
+          >
+            <span class="industry__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3v18"/>
+                <path d="M6 4h10l-1.5 3L16 10H6"/>
+              </svg>
+            </span>
+            <span class="industry__label">Military</span>
+            <span class="industry__chev" aria-hidden="true">+</span>
+          </button>
+      
+          <div class="industry__panel" id="panel-military" hidden>
+            <div class="industry__panelInner">
+              <p><strong>Military.</strong> Large organizations need standardized training and performance validation that still respects hierarchical oversight and operational tempo. TORBU coordinates execution at scale while giving commanders verified visibility into readiness and compliance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- HOW IT WORKS -->
