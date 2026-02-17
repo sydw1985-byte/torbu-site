@@ -856,7 +856,7 @@ textarea:focus{
   font-size:12px;
   letter-spacing:.02em;
   color:rgba(31,35,34,.65);
-  margin-top:8px;
+  margin-top:3px;
   max-width:44ch;
 }
 
@@ -880,7 +880,7 @@ textarea:focus{
 
 /* bottom legal */
 .footer__bottom{
-  margin-top:16px;
+  margin-top:22px;
 }
 
 .footer__legal{
