@@ -851,6 +851,18 @@ textarea:focus{
 }
 .footer__right a:hover{opacity:.85}
 
+/* Makes legal text feel institutional and subtle */
+.footer__legal{
+  margin-top:14px;
+  font-size:13px;
+  color:rgba(31,35,34,.65);
+}
+
+.footer__brand sup{
+  font-size:12px;
+  vertical-align:super;
+}
+
 /* ---------- Responsive (single block; no duplicates) ---------- */
 @media (max-width: 900px){
 
