@@ -414,6 +414,11 @@ img{max-width:100%;height:auto;display:block}
   line-height: 1;
   color: rgba(31,35,34,.55);
 }
+/* Rotate + to x when open */
+.industryTrigger[aria-expanded="true"] .industryPlus{
+  transform: rotate(45deg);
+}
+
 
 /* Panel */
 .industryPanel{
