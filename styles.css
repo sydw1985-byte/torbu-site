@@ -851,7 +851,7 @@ textarea:focus{
   font-size:12px;
   letter-spacing:.02em;
   color:rgba(31,35,34,.65);
-  margin-top:3px;
+  margin-top:2px;
   max-width:44ch;
 }
 
@@ -875,7 +875,7 @@ textarea:focus{
 
 /* bottom legal */
 .footer__bottom{
-  margin-top:18px;
+  margin-top:22px;
 }
 
 .footer__legal{
@@ -896,25 +896,25 @@ textarea:focus{
     gap:18px;
   }
 }
-/* Registered trademark mark (don’t use <sup>) */
+
+/* Registered trademark mark */
 .reg{
   display:inline-block;
   margin-left:3px;
   line-height:1;
-  position:relative;
-  top:-0.35em;          /* lifts it like a superscript */
+  transform: translateY(-0.45em) scale(1.25); /* <-- makes it LOOK bigger */
+  transform-origin: left bottom;
+  font-family: Arial, system-ui, sans-serif;  /* <-- bigger ® glyph than Poppins */
 }
 
-/* Slightly larger in the brand lockup */
+/* Size tuning */
 .reg--brand{
-  font-size:14px;       /* bump this to 13–14 if you want */
   opacity:.85;
 }
 
-/* Readable but subtle in the legal line */
 .reg--legal{
-  font-size:13px;       /* bump to 13 if desired */
   opacity:.65;
+  transform: translateY(-0.35em) scale(1.15); /* slightly calmer in legal line */
 }
 
 /* ---------- Responsive (single block; no duplicates) ---------- */
