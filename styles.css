@@ -906,6 +906,26 @@ textarea:focus{
     gap:18px;
   }
 }
+/* Registered trademark mark (don’t use <sup>) */
+.reg{
+  display:inline-block;
+  margin-left:3px;
+  line-height:1;
+  position:relative;
+  top:-0.35em;          /* lifts it like a superscript */
+}
+
+/* Slightly larger in the brand lockup */
+.reg--brand{
+  font-size:12px;       /* bump this to 13–14 if you want */
+  opacity:.85;
+}
+
+/* Readable but subtle in the legal line */
+.reg--legal{
+  font-size:12px;       /* bump to 13 if desired */
+  opacity:.65;
+}
 
 /* ---------- Responsive (single block; no duplicates) ---------- */
 @media (max-width: 900px){
