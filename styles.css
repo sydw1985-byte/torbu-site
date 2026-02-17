@@ -816,14 +816,25 @@ textarea:focus{
 }
 
 /* Footer */
-.footer{padding:48px 0 56px}
-.footer__inner{
+.footer{
+  padding:48px 0 56px;
+}
+
+.footer .container{
+  border-top:1px solid var(--line);
+  padding-top:32px;
+}
+
+/* Top row: brand left, nav right */
+.footer__top{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
   gap:32px;
-  border-top:1px solid var(--line);
-  padding-top:36px;
+}
+
+.footer__left{
+  min-width:240px;
 }
 
 .footer__brand{
@@ -835,10 +846,9 @@ textarea:focus{
 }
 
 .footer__brand sup{
-  font-size:9px;            /* smaller ® */
+  font-size:10px;
   vertical-align:super;
   margin-left:2px;
-  opacity:.8;
 }
 
 .footer__tag{
@@ -848,25 +858,51 @@ textarea:focus{
   margin-top:8px;
 }
 
-/* Makes legal text feel institutional and subtle */
-.footer__legal{
-  margin-top:12px;
-  font-size:12px;           /* smaller */
-  color:rgba(31,35,34,.50); /* lighter */
+/* Right-side nav */
+.footer__nav{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:22px;
+  flex-wrap:wrap;
+  text-align:right;
 }
 
-.footer__right{
-  display:flex;
-  gap:24px;
-  flex-wrap:wrap;
-}
-.footer__right a{
+.footer__nav a{
   font-size:13px;
   letter-spacing:.08em;
   text-transform:uppercase;
   color:rgba(31,35,34,.72);
+  white-space:nowrap;
 }
-.footer__right a:hover{opacity:.85}
+
+.footer__nav a:hover{ opacity:.85; }
+
+/* Bottom legal row */
+.footer__bottom{
+  margin-top:20px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+}
+
+.footer__legal{
+  font-size:12px;
+  color:rgba(31,35,34,.50);
+  line-height:1.5;
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .footer__top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .footer__nav{
+    justify-content:flex-start;
+    text-align:left;
+    gap:14px 18px;
+  }
+}
 
 /* ---------- Responsive (single block; no duplicates) ---------- */
 @media (max-width: 900px){
