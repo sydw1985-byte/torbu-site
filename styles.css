@@ -822,10 +822,10 @@ textarea:focus{
 
 .footer .container{
   border-top:1px solid var(--line);
-  padding-top:32px;
+  padding-top:36px;
 }
 
-/* Top row: brand left, nav right */
+/* top row: left brand/tag + right nav */
 .footer__top{
   display:flex;
   align-items:flex-start;
@@ -837,6 +837,7 @@ textarea:focus{
   min-width:240px;
 }
 
+/* Brand */
 .footer__brand{
   font-weight:600;
   font-size:13px;
@@ -848,23 +849,24 @@ textarea:focus{
 .footer__brand sup{
   font-size:10px;
   vertical-align:super;
-  margin-left:2px;
+  margin-left:1px;
 }
 
+/* Tagline */
 .footer__tag{
   font-size:12px;
   letter-spacing:.02em;
   color:rgba(31,35,34,.65);
   margin-top:8px;
+  max-width:44ch;
 }
 
-/* Right-side nav */
+/* Right nav */
 .footer__nav{
   display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:22px;
+  gap:24px;
   flex-wrap:wrap;
+  justify-content:flex-end;
   text-align:right;
 }
 
@@ -873,16 +875,13 @@ textarea:focus{
   letter-spacing:.08em;
   text-transform:uppercase;
   color:rgba(31,35,34,.72);
-  white-space:nowrap;
 }
 
 .footer__nav a:hover{ opacity:.85; }
 
-/* Bottom legal row */
+/* bottom legal */
 .footer__bottom{
-  margin-top:20px;
-  padding-top:14px;
-  border-top:1px solid var(--line);
+  margin-top:16px;
 }
 
 .footer__legal{
@@ -891,7 +890,7 @@ textarea:focus{
   line-height:1.5;
 }
 
-/* Mobile */
+/* Mobile: stack left + nav under */
 @media (max-width: 720px){
   .footer__top{
     flex-direction:column;
@@ -900,7 +899,7 @@ textarea:focus{
   .footer__nav{
     justify-content:flex-start;
     text-align:left;
-    gap:14px 18px;
+    gap:18px;
   }
 }
 
