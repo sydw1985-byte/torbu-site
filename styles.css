@@ -912,6 +912,10 @@ textarea:focus{
   opacity:.5;
 }
 
+.no-wrap{
+  white-space: nowrap;
+}
+
 /* Mobile */
 @media (max-width:720px){
   .footer__top{
