@@ -375,16 +375,14 @@ img{max-width:100%;height:auto;display:block}
 
 /* Button row */
 .industryTrigger{
-  width: 100%;
-  display: grid;
-  grid-template-columns: 34px 1fr 22px;
+  display: inline-grid;
+  grid-template-columns: 28px auto auto;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 
   background: transparent;
   border: none;
-  padding: 10px 12px;
-  border-radius: 14px;
+  padding: 10px 0;
   cursor: pointer;
 
   color: rgba(31,35,34,.92);
