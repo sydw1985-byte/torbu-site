@@ -32,12 +32,14 @@ const form = document.getElementById("contactForm");
   }
 
   function closeAll(exceptBtn = null) {
-    root.querySelectorAll('.industryTrigger[aria-expanded="true"]').forEach((btn) => {
-      if (btn === exceptBtn) return;
-      const panel = getPanel(btn);
-      btn.setAttribute("aria-expanded", "false");
-      if (panel) panel.hidden = true;
-    });
+    root
+      .querySelectorAll('.industryTrigger[aria-expanded="true"]')
+      .forEach((btn) => {
+        if (btn === exceptBtn) return;
+        const panel = getPanel(btn);
+        btn.setAttribute("aria-expanded", "false");
+        if (panel) panel.hidden = true;
+      });
   }
 
   root.addEventListener("click", (e) => {
@@ -60,8 +62,7 @@ const form = document.getElementById("contactForm");
     // Keep "+" in markup and let CSS rotate it to form an "x".
   });
 
-  // Optional: ensure everything starts closed and consistent
-  // (useful if any HTML has aria-expanded="true" accidentally)
+  // Ensure everything starts closed and consistent
   closeAll();
 })();
 
@@ -85,9 +86,15 @@ if (form) {
     }
 
     const submitBtn = form.querySelector('button[type="submit"]');
+    const label = submitBtn ? submitBtn.querySelector(".btn__text") : null;
+    const originalLabel = label ? label.textContent : null;
+
+    // Put button into loading state
     if (submitBtn) {
       submitBtn.disabled = true;
+      submitBtn.classList.remove("is-success");
       submitBtn.classList.add("is-loading");
+      if (label && originalLabel == null) label.textContent = "Send";
     }
 
     // Required fields
@@ -125,15 +132,32 @@ if (form) {
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error || "Could not send.");
 
+      // Success micro-state before redirect
+      if (submitBtn) {
+        submitBtn.classList.remove("is-loading");
+        submitBtn.classList.add("is-success");
+        if (label) label.textContent = "Sent";
+
+        // Brief pause so the user sees confirmation
+        await new Promise((r) => setTimeout(r, 450));
+      }
+
       window.location.href = "./thank-you.html";
     } catch (err) {
       console.error(err);
       alert(err?.message || "Could not send. Please try again.");
     } finally {
       try { window.turnstile.reset(widget); } catch {}
+
+      // Restore button if we didn't navigate away
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.classList.remove("is-loading");
+
+        // If we didn't succeed, ensure label is restored
+        if (!submitBtn.classList.contains("is-success") && label && originalLabel != null) {
+          label.textContent = originalLabel;
+        }
       }
     }
   });
