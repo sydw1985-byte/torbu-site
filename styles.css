@@ -381,7 +381,9 @@ img{max-width:100%;height:auto;display:block}
   color:rgba(3,81,87,.92);
 }
 
-/* ========== Industries Accordion (stacked, centered) ========== */
+/* ========================= 
+Industries Accordion (stacked, centered) 
+========================== */
 .industry-accordion{
   max-width: 520px;
   margin: 28px auto 0;
@@ -491,6 +493,32 @@ img{max-width:100%;height:auto;display:block}
   color: var(--midnight);
   font-weight: 600;
   letter-spacing: .01em;
+}
+
+/* =========================
+   Focus Section Integration
+========================= */
+
+/* Reduce bottom spacing after gravity text */
+.sector-gravity {
+  margin-bottom: 1.75rem; /* was likely 2.5–3rem */
+}
+
+/* Tighten space above Sector Applications title */
+.focus__head {
+  margin-top: 1.25rem;   /* reduced */
+  margin-bottom: 1rem;   /* tighter */
+  text-align: center;
+}
+
+/* Pull accordion closer to title */
+.industry-accordion {
+  margin-top: 0.5rem;
+}
+
+/* Reduce top margin on first accordion item */
+.industry-accordion .industryItem:first-child {
+  margin-top: 0;
 }
 
 /* HOW IT WORKS steps */
