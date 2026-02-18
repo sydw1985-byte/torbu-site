@@ -91,7 +91,9 @@ img{max-width:100%;height:auto;display:block}
   line-height:1.6;
 }
 
-/* Buttons */
+/* =============
+Buttons 
+============= */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -118,6 +120,62 @@ img{max-width:100%;height:auto;display:block}
 }
 .btn--ghost:hover{background:rgba(255,255,255,.35)}
 .btn--full{width:100%}
+
+/* =========================
+   Button Spinner + States
+========================= */
+
+.btn{
+  position: relative;
+}
+
+/* Spinner color inherits from current text color */
+.btn__spinner{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  opacity: .7;
+  display: none;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin .7s linear infinite;
+}
+
+/* Loading hides label and shows spinner */
+.btn.is-loading .btn__text{ visibility: hidden; }
+.btn.is-loading .btn__spinner{ display: inline-block; }
+
+.btn.is-loading{
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Success state: quick "settle" + subtle confirmation */
+.btn.is-success{
+  pointer-events: none;
+}
+
+.btn.is-success .btn__text{
+  visibility: visible;
+}
+
+.btn.is-success .btn__spinner{
+  display: none;
+}
+
+.btn.is-success{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(3,81,87,.16);
+}
+
+@keyframes spin{
+  to{ transform: translate(-50%, -50%) rotate(360deg); }
+}
 
 /* HEADER / NAV — single truth */
 
