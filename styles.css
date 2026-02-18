@@ -2,6 +2,7 @@
   /* Brand */
   --midnight:#035157;
   --isabelline:#F2EDE8;
+  --isabelline-alt:#FBFAF8;
   --eerie:#1F2322;
   --orange:#FC7C57;
   --lime:#D6FC49;
@@ -309,12 +310,18 @@ img{max-width:100%;height:auto;display:block}
 .btn--ghost-on-hero:hover{background:rgba(255,255,255,.14)}
 
 /* Sections */
-.section{padding:96px 0; text-align:center;}
+.section{
+  padding:96px 0;
+  text-align:center;
+  background:var(--isabelline);
+}
+
 .section--alt{
-  background:rgba(255,255,255,.55);
+  background:var(--isabelline-alt);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
+
 .section__head{
   max-width:900px;
   margin:0 auto 34px;
@@ -532,7 +539,7 @@ Industries Accordion (stacked, centered)
   position:relative;
   border:1px solid var(--line);
   border-radius:18px;
-  background:rgba(255,255,255,.78);
+  background:#fff; /* changed */
   padding:18px 16px 16px;
   box-shadow:0 10px 30px rgba(0,0,0,.06);
 }
