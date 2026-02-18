@@ -428,16 +428,16 @@ Buttons
 }
 
 /* =========================
-   Focus Section Title
+   Governance Section Title
 ========================= */
 
-.focus__head {
+.governance__head {
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.focus__title {
+.governance__title {
   margin:0 0 6px; /* match eco__title */
   font-size:13px;
   font-weight:600;
@@ -562,7 +562,7 @@ Industries Accordion (stacked, centered)
 }
 
 /* =========================
-   Focus Section Integration
+   Governance Section Integration
 ========================= */
 
 /* Reduce bottom spacing after gravity text */
@@ -571,7 +571,7 @@ Industries Accordion (stacked, centered)
 }
 
 /* Tighten space above Sector Applications title */
-.focus__head {
+.governance__head {
   margin-top: 1.25rem;   /* reduced */
   margin-bottom: 1rem;   /* tighter */
   text-align: center;
@@ -587,7 +587,7 @@ Industries Accordion (stacked, centered)
   margin-top: 0;
 }
 
-/* HOW IT WORKS steps */
+/* MODEL steps */
 .steps{
   display:grid;
   grid-template-columns:repeat(4, minmax(0, 1fr));
