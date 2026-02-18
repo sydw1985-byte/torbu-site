@@ -26,17 +26,16 @@ const form = document.getElementById("contactForm");
   const root = document.getElementById("industryAccordion");
   if (!root) return;
 
-  function closeAll(exceptBtn) {
-    const buttons = root.querySelectorAll('.industryTrigger[aria-expanded="true"]');
-    buttons.forEach((btn) => {
+  function getPanel(btn) {
+    const panelId = btn.getAttribute("aria-controls");
+    return panelId ? document.getElementById(panelId) : null;
+  }
+
+  function closeAll(exceptBtn = null) {
+    root.querySelectorAll('.industryTrigger[aria-expanded="true"]').forEach((btn) => {
       if (btn === exceptBtn) return;
-
-      const panelId = btn.getAttribute("aria-controls");
-      const panel = panelId ? document.getElementById(panelId) : null;
-
+      const panel = getPanel(btn);
       btn.setAttribute("aria-expanded", "false");
-      const plus = btn.querySelector(".industryPlus");
-      if (plus) plus.textContent = "+";
       if (panel) panel.hidden = true;
     });
   }
@@ -45,20 +44,25 @@ const form = document.getElementById("contactForm");
     const btn = e.target.closest(".industryTrigger");
     if (!btn || !root.contains(btn)) return;
 
-    const panelId = btn.getAttribute("aria-controls");
-    const panel = panelId ? document.getElementById(panelId) : null;
+    const panel = getPanel(btn);
     if (!panel) return;
 
     const isOpen = btn.getAttribute("aria-expanded") === "true";
 
+    // Close others first
     closeAll(btn);
 
+    // Toggle this one
     btn.setAttribute("aria-expanded", String(!isOpen));
     panel.hidden = isOpen;
 
-    const plus = btn.querySelector(".industryPlus");
-    if (plus) plus.textContent = isOpen ? "+" : "×";
+    // IMPORTANT: do NOT change the "+" text here.
+    // Keep "+" in markup and let CSS rotate it to form an "x".
   });
+
+  // Optional: ensure everything starts closed and consistent
+  // (useful if any HTML has aria-expanded="true" accidentally)
+  closeAll();
 })();
 
 /* Contact form submit (Worker + Turnstile) */
