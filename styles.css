@@ -450,12 +450,12 @@ Industries Accordion (stacked, centered)
   font-size: 18px;
   line-height: 1;
   color: rgba(31,35,34,.55);
+  transition: transform .2s ease;
 }
-/* Rotate + to x when open */
+
 .industryTrigger[aria-expanded="true"] .industryPlus{
   transform: rotate(45deg);
 }
-
 
 /* Panel */
 .industryPanel{
