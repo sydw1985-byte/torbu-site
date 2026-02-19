@@ -446,6 +446,13 @@ Buttons
   color:rgba(3,81,87,.92);
 }
 
+.governance__subhead{
+  margin:0;
+  color:rgba(31,35,34,.78);
+  font-size:15px;
+  line-height:1.5;
+}
+
 /* ========================= 
 Industries Accordion (stacked, centered) 
 ========================== */
