@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>TORBU — Page not found</title>
+
+  <!-- Reuse your site CSS -->
+  <link rel="stylesheet" href="styles.css?v=9" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Optional: keep this super minimal to avoid nav link confusion on a 404 -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./index.html#main" aria-label="TORBU home">
+        <img class="brand__logo" src="assets/torbu-logo-horizontal-green.png" alt="TORBU" />
+      </a>
+
+      <div class="nav__actions">
+        <a class="btn btn--primary nav__cta" href="./index.html#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <p class="micro-kicker">404</p>
+          <h1 class="h2">Page not found</h1>
+          <p class="subhead">
+            This link may be outdated or the page may have moved.
+          </p>
+        </div>
+
+        <div class="hero__buttons hero__buttons--center">
+          <a class="btn btn--ghost" href="./index.html#main">Home</a>
+          <a class="btn btn--ghost" href="./index.html#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Credibility ribbon (optional; keep consistent with main site) -->
+  <section class="cred-ribbon" aria-label="Credibility">
+    <div class="container cred-ribbon__inner">
+      <span class="cred-ribbon__text">Built for accountability at scale.</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__left">
+          <div class="footer__brand">
+            TORBU<span class="reg reg--brand" aria-hidden="true">®</span>
+          </div>
+          <div class="footer__tag">Operating Intelligence for Regulated Systems.</div>
+        </div>
+
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="./index.html#governance">Governance</a>
+          <a href="./index.html#model">Model</a>
+          <a href="./index.html#architecture">Architecture</a>
+          <a href="./index.html#why">Why now</a>
+          <a href="./index.html#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          © <span id="year"></span> TORBU, LLC. All rights reserved.
+          TORBU<span class="reg reg--legal" aria-hidden="true">®</span> is a registered trademark of TORBU, LLC.
+        </div>
+        <div class="footer__legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <span class="footer__sep">•</span>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---- 404 logging + redirect ----
+    (function () {
+      const path = location.pathname + location.search + location.hash;
+      const payload = {
+        path,
+        referrer: document.referrer || "",
+        ua: navigator.userAgent || "",
+        ts: Date.now()
+      };
+
+      // Send log (best-effort). Replace with your Worker base URL:
+      const LOG_URL = "https://orange-wind-4bed.syd-ab8.workers.dev/log404";
+
+      // Prefer beacon; fallback to fetch keepalive.
+      try {
+        const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
+        if (navigator.sendBeacon) navigator.sendBeacon(LOG_URL, blob);
+        else fetch(LOG_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), keepalive: true });
+      } catch {}
+
+      // Redirect to home with the original path preserved (so you can debug/route later).
+      // Delay just a beat so the message is visible.
+      setTimeout(() => {
+        const q = encodeURIComponent(path);
+        location.replace("./index.html?from=404&path=" + q);
+      }, 650);
+    })();
+  </script>
+</body>
+</html>
