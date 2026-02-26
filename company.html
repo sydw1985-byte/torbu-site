@@ -31,13 +31,13 @@
   <link rel="manifest" href="site.webmanifest?v=20260219">
   <meta name="theme-color" content="#035157">
 
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 
 <body class="page--company has-ribbon">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header (match index.html / water.html) -->
+  <!-- Header -->
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="./index.html" aria-label="TORBU home">
@@ -74,6 +74,7 @@
   </header>
 
   <main id="main">
+
     <!-- PAGE HERO -->
     <section class="section section--companyHero" id="company">
       <div class="container">
@@ -81,11 +82,10 @@
           <p class="micro-kicker">Company</p>
           <h1 class="h2">Supervisory infrastructure</h1>
           <p class="subhead">
-            Delivered as secure enterprise software, TORBU integrates alongside existing systems — without replacing them — 
-            to preserve supervisory authority across complex, regulated environments
+            TORBU is supervisory architecture for regulated environments. Delivered as secure enterprise software, 
+            it integrates alongside existing systems without displacing engineering or domain software.
           </p>
         </div>
-
         <div class="hero__buttons hero__buttons--center">
           <a class="btn btn--ghost" href="./index.html#contact">Contact</a>
         </div>
@@ -98,17 +98,22 @@
         <div class="company">
           <p class="micro-kicker">What it is</p>
           <h2 class="h2">Governance layer across systems, roles, and time</h2>
+          <p class="subhead">
+            TORBU defines structure, formalizes authority, and preserves verified records across supervisory environments without increasing operational burden.
+          </p>
 
           <div class="company__listWrap">
             <ul class="company__list">
-              <li>Defines standards and accountable ownership</li>
-              <li>Structures workflows with checkpoints and validation</li>
-              <li>Preserves audit trails and supervisory visibility</li>
+              <li>Defined standards</li>
+              <li>Structured workflows</li>
+              <li>Verified records</li>
+              <li>Tiered authority</li>
+              <li>Audit traceability</li>
             </ul>
           </div>
 
-          <div class="company__callout" role="note" aria-label="Core promise">
-            <span style="font-weight:500;">TORBU governs across execution environments without replacing engineering or domain systems.</span>
+          <div class="company__callout company__callout--secondary" role="note" aria-label="Core promise">
+            <span style="font-weight:500;">Accountability is non-negotiable.</span>
           </div>
         </div>
       </div>
@@ -119,53 +124,51 @@
       <div class="container">
         <div class="company">
           <p class="micro-kicker">Delivery model</p>
-          <h2 class="h2">Built for coordinated environments</h2>
+          <h2 class="h2">Structured for coordinated environments</h2>
           <p class="subhead">
-            TORBU complements domain, engineering, and public-sector delivery partners without competing for control of their systems.
+            Infrastructure modernization requires coordination among regulators, operators, engineers, and training partners. TORBU establishes supervisory continuity across institutional boundaries while preserving operational authority within each domain.
           </p>
 
-          <div class="company__listWrap">
-            <ul class="company__list">
-              <li>Partners deliver execution and domain work</li>
-              <li>TORBU defines supervisory structure and evidence</li>
-              <li>Stakeholders retain visibility and accountability</li>
-            </ul>
-          </div>
-
-          <div class="company__callout" role="note" aria-label="Core promise">
-            <span style="font-weight:500;">Vendor-neutral by design. Partner-ready by architecture.</span>
+          <div class="company__callout company__callout--secondary" role="note" aria-label="Core promise">
+            <span style="font-weight:500;">The supervisory model remains consistent. The implementation environment changes.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHY IT MATTERS -->
-    <section class="section section--alt section--companyTight" id="company-why">
+    <!-- COMPANY JOURNEY -->
+    <section class="section section--companyTight" id="company-journey">
       <div class="container">
         <div class="company">
-          <p class="micro-kicker">Why it matters</p>
-          <h2 class="h2">Automation increases supervisory complexity</h2>
-
-          <p class="company__body">
-            AI accelerates execution and multiplies tools. Responsibility remains human.
+          <p class="micro-kicker">Operating doctrine</p>
+          <h2 class="h2">Formed under discipline</h2>
+          <p class="subhead">
+            We developed TORBU within demanding supervisory environments.
+            Each phase established the foundation for the next.
           </p>
-
-          <div class="company__callout" role="note" aria-label="Core promise">
-            <span style="font-weight:500;">Accountability is non-negotiable.</span>
-          </div>
+          <p style="margin-top:12px; font-size:13px;">
+            <a href="./water.html" style="color:var(--midnight); font-weight:600; letter-spacing:.01em;">
+              Applying supervisory architecture to water infrastructure →
+            </a>
+          </p>
         </div>
+
+        <div class="jia__wrap" id="jiAccordion" aria-label="Company journey"></div>
+
+
       </div>
     </section>
+
   </main>
 
-   <!-- Credibility ribbon -->
+  <!-- Credibility ribbon -->
   <section class="cred-ribbon" aria-label="Credibility">
     <div class="container cred-ribbon__inner">
       <span class="cred-ribbon__text">Built for accountability at scale.</span>
     </div>
   </section>
 
-  <!-- Footer (match index.html / water.html) -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
@@ -204,26 +207,7 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
-  <!-- Minimal JS: nav drawer -->
-  <script>
-    (() => {
-      const navBtn = document.getElementById("navToggle");
-      const drawer = document.getElementById("drawer");
-      if (!navBtn || !drawer) return;
+  <script src="./app.js?v=11" defer></script>
 
-      navBtn.addEventListener("click", () => {
-        const isOpen = navBtn.getAttribute("aria-expanded") === "true";
-        navBtn.setAttribute("aria-expanded", String(!isOpen));
-        drawer.hidden = isOpen;
-      });
-
-      drawer.addEventListener("click", (e) => {
-        if (e.target.closest("a")) {
-          drawer.hidden = true;
-          navBtn.setAttribute("aria-expanded", "false");
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
