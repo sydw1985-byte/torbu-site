@@ -2,7 +2,7 @@
 
 ## Current Version
 
-**v1.3.0 — March 23, 2026**
+**v1.4.0 — March 24, 2026**
 
 ## Pages
 
@@ -20,6 +20,9 @@
 - `site.webmanifest` — PWA manifest
 
 ## Version History
+
+**v1.4.0 — March 24, 2026**
+DNS migrated from Amazon Route 53 to Cloudflare. Cloudflare proxy enabled for all web-facing subdomains. Cloudflare Zero Trust Access configured — staging.torbu.com protected behind email-based OTP authentication. Cloudflare edge rate limiting deployed on torbu.com (20 req/10s/IP). Deployment Architecture updated to reflect Cloudflare edge layer. Model section gap fixed (section--alt added).
 
 **v1.3.0 — March 23, 2026**
 Copy refresh across index.html and water.html. Governance section rewritten with concrete problem framing. Why Now rewritten with specific regulatory and AI urgency. Differentiation, One Standard, and Publish Gate sections added then refined to final form. Section order updated: Governance → Model → Architecture → Sector Applications → Why Now. Water use case tightened: redundant body paragraph removed, gate subsection updated to governance language. Mobile overflow fixed (html/body overflow-x, Turnstile widget scaling, form padding). Nav collapse fixed at mobile breakpoint. styles.css bumped to v12.
