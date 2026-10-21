@@ -1,10 +1,13 @@
+
+
 /* ============================================================
    app.js — TORBU
    - Mobile drawer toggle
    - Industry accordion (single-open)
    - Hash auto-open for Water accordion
    - Contact form submit (Worker + Turnstile) [only if form exists]
-   - Company Journey inline component (click-to-swap, company page)
+   - Scroll-reveal for architecture cards
+   - Company story scroll timeline (company page)
 ============================================================ */
 
 /* Mobile drawer toggle */
@@ -152,7 +155,6 @@
   }
 
   bindCallouts(".company__callout");
-  bindCallouts(".jia__takeaway");
   bindCallouts(".usecase__callout");
   bindCallouts(".usecase__emphasis");
 })();
@@ -251,86 +253,6 @@
 })();
 
 
-/* Company Story — scroll-driven timeline, company.html
-   Desktop: sticky rail + active story stage.
-   Mobile: simple vertical timeline with active-stage emphasis.
-============================================================ */
-
-(() => {
-  const story = document.getElementById("journeyStory");
-  if (!story) return;
-
-  const steps = Array.from(story.querySelectorAll(".journey-story__step"));
-  const navItems = Array.from(story.querySelectorAll(".journey-story__navItem"));
-  const fill = document.getElementById("journeyLineFill");
-  if (!steps.length) return;
-
-  let activeIndex = 0;
-
-  function setActive(index) {
-    index = Math.max(0, Math.min(steps.length - 1, index));
-    activeIndex = index;
-
-    steps.forEach((step, i) => {
-      step.classList.toggle("is-active", i === index);
-      step.classList.toggle("is-past", i < index);
-    });
-
-    navItems.forEach((item, i) => {
-      item.classList.toggle("is-active", i === index);
-      item.classList.toggle("is-past", i < index);
-      if (i === index) item.setAttribute("aria-current", "step");
-      else item.removeAttribute("aria-current");
-    });
-
-    if (fill) {
-      const pct = steps.length > 1 ? (index / (steps.length - 1)) * 100 : 100;
-      fill.style.height = pct + "%";
-    }
-  }
-
-  navItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      const index = Number(item.dataset.step);
-      const target = steps[index];
-      if (!target) return;
-      target.scrollIntoView({ behavior: "smooth", block: "center" });
-      setActive(index);
-    });
-  });
-
-  if (!("IntersectionObserver" in window)) {
-    setActive(0);
-    return;
-  }
-
-  const ratios = new Map();
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const index = Number(entry.target.dataset.step);
-      ratios.set(index, entry.isIntersecting ? entry.intersectionRatio : 0);
-    });
-
-    let bestIndex = activeIndex;
-    let bestRatio = -1;
-    ratios.forEach((ratio, index) => {
-      if (ratio > bestRatio) {
-        bestRatio = ratio;
-        bestIndex = index;
-      }
-    });
-
-    if (bestRatio > 0) setActive(bestIndex);
-  }, {
-    threshold: [0.15, 0.3, 0.5, 0.7, 0.9],
-    rootMargin: "-18% 0px -28% 0px"
-  });
-
-  steps.forEach((step) => observer.observe(step));
-  setActive(0);
-})();
-
-
 /* Scroll-reveal — Architecture diagram cards (Supervisory /
    Execution / Physical Layer). Applied entirely from JS: the
    .reveal class is added here, not in the HTML, so if this
@@ -369,4 +291,70 @@
   );
 
   cards.forEach((card) => observer.observe(card));
+})();
+
+
+/* Company story: scroll-driven four-stage timeline (company.html).
+   Progressive enhancement: without this script all four stages render fully visible. */
+(() => {
+  const root = document.getElementById("companyStory");
+  if (!root) return;
+
+  const steps = Array.from(root.querySelectorAll(".cstory__step"));
+  const navItems = Array.from(root.querySelectorAll(".cstory__navItem"));
+  const fill = document.getElementById("cstoryFill");
+  if (!steps.length) return;
+
+  let active = 0;
+
+  function setActive(i) {
+    i = Math.max(0, Math.min(steps.length - 1, i));
+    active = i;
+    steps.forEach((s, n) => {
+      s.classList.toggle("is-active", n === i);
+      s.classList.toggle("is-past", n < i);
+    });
+    navItems.forEach((b, n) => {
+      b.classList.toggle("is-active", n === i);
+      b.classList.toggle("is-past", n < i);
+      if (n === i) b.setAttribute("aria-current", "step");
+      else b.removeAttribute("aria-current");
+    });
+    if (fill) fill.style.height = (steps.length > 1 ? (i / (steps.length - 1)) * 100 : 100) + "%";
+  }
+
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  navItems.forEach((b) => {
+    b.addEventListener("click", () => {
+      const i = Number(b.dataset.step);
+      const t = steps[i];
+      if (!t) return;
+      t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      setActive(i);
+    });
+  });
+
+  root.classList.add("cstory--live");
+  setActive(0);
+
+  /* Active stage = the last card whose top has crossed 55% of the viewport height. */
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const line = window.innerHeight * 0.55;
+    let best = 0;
+    steps.forEach((s, i) => {
+      if (s.getBoundingClientRect().top <= line) best = i;
+    });
+    if (best !== active) setActive(best);
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  /* Capture phase: styles.css sets overflow on html and body, so the scrolling
+     element can be the body rather than the window. */
+  window.addEventListener("scroll", onScroll, { passive: true, capture: true });
+  window.addEventListener("resize", onScroll);
+  update();
 })();
